@@ -1,0 +1,7 @@
+
+export function SolahTimeScreen() {
+  return (
+    <>
+    </>
+  );
+}

@@ -3,9 +3,12 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/features-solah/*": ["./src/features/solah/*"],
+      "@/app/*": ["./src/app/*"],
+      "@/screens/*": ["./src/screens/*"],
+      "@/features/*": ["./src/features/*"],
+      "@/shared/*": ["./src/shared/*"],
+      "@/*": ["./*"]
     }
   },
   "include": [
