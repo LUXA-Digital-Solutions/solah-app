@@ -68,5 +68,6 @@ This document details how you can contribute to this project in simple steps.
     - Click on `New Pull Request`.
     - Click on the branch you wish to create pull request for. This will then show you all your changes.
     - Then click on `Create new pull request`.
-    - Thereafter, you await the reviews and approval. If there is any request for reviews, you just need to perform steps 3 and 4 again to make necessary corrections. You are not required to open a new pull request.
+    - Thereafter, you await the reviews and approval. If there is any request for reviews, you just need to perform steps 3 and 4 again to make necessary corrections. 
+    - Note: You are not required to open a new pull request if the previous pull request has not been merged yet. However, if it has been merged already, you will need to create a new pull request for the new changes.
     
