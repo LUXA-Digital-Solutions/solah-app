@@ -21,5 +21,4 @@
 # Others
 **/.github/
 **/.vscode/
-**/.gitignore
-**/.prettierignore
+**/.*ignore
