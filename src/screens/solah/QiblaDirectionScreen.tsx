@@ -1,8 +1,3 @@
-
-
 export function QiblaDirectionScreen() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }

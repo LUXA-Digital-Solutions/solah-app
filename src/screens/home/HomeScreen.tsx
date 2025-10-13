@@ -1,8 +1,3 @@
-
-
 export function HomeScreen() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }

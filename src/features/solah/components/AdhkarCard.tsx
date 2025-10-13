@@ -1,8 +1,3 @@
-
-
 export function AdhkarCard() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }

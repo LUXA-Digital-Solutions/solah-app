@@ -1,8 +1,3 @@
-
-
 export function ProgressBar() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
