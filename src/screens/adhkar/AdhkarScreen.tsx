@@ -1,8 +1,3 @@
-
-
 export function AdhkarScreen() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }

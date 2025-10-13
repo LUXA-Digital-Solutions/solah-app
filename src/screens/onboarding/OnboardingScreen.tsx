@@ -1,8 +1,3 @@
-
-
 export function OnboardingScreen() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }

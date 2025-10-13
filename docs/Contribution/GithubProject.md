@@ -1,6 +1,6 @@
 # Project Management
 
-The project is managed using: 
+The project is managed using:
 
 1. [Github Issues](https://github.com/LUXA-Digital-Solutions/solah-app/issues).
 

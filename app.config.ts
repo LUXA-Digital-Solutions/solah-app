@@ -1,5 +1,6 @@
 // app.config.js
 import { ConfigContext, ExpoConfig } from "expo/config";
+
 import { version } from "./package.json";
 
 const EAS_PROJECT_ID = "8adc6578-e4a8-4fa8-98b4-37ab84ad6a76";
