@@ -69,7 +69,7 @@ export default ( { config }: ConfigContext ): ExpoConfig => {
     scheme,
     userInterfaceStyle: "automatic",
     newArchEnabled: true,
-    platforms: [ "android", "ios" ],
+    platforms: [ "android", "ios", "web" ],
     ios: {
       supportsTablet: true,
       bundleIdentifier: scheme,
