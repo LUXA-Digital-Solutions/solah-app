@@ -1,0 +1,2 @@
+# Execute lint-staged, which runs ESLint and Prettier on staged files
+npx lint-staged
