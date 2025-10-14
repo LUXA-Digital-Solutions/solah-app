@@ -3,7 +3,7 @@ import React from 'react';
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
 
 
-export default function HomeScreen() {
+export  function HomeScreen() {
   const { width } = useWindowDimensions();
   const CONTAINER_WIDTH = Math.min(380, width - 20);
 
