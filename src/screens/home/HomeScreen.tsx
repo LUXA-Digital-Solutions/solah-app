@@ -1,8 +1,9 @@
+import { AdhkarCard } from '@/features-solah/components';
 import React from 'react';
 import { ScrollView, Text, View, useWindowDimensions } from 'react-native';
-import { AdhkarCard } from '../../features/solah/components/AdhkarCard';
 
-export function HomeScreen() {
+
+export default function HomeScreen() {
   const { width } = useWindowDimensions();
   const CONTAINER_WIDTH = Math.min(380, width - 20);
 
@@ -11,7 +12,7 @@ export function HomeScreen() {
       <Text style={{
         fontSize: 24,
         textAlign: 'left',
-        marginBottom: 8,
+        marginBottom: 20,
         fontWeight: 'bold',
         paddingLeft: 10,
         color: '#333333'
@@ -37,9 +38,10 @@ export function HomeScreen() {
             width={170}
             height={268}
             backgroundColor="#7F5539"
-            illustration={require('../../assets/images/Group.png')}
+            illustration={require('@/assets/images/Group.png')}
           />
         </View>
+        
         {/* Right - Two Small Cards Stacked */}
         <View style={{ width: 160, justifyContent: 'flex-start' }}>
           <AdhkarCard
@@ -50,7 +52,7 @@ export function HomeScreen() {
             width={177}
             height={126}
             backgroundColor="#E6D3C7"
-            illustration={require('../../assets/images/Prostration.png')}
+            illustration={require('@/assets/images/Prostration.png')}
           />
           <View style={{ height: 16 }} />
           <AdhkarCard
@@ -61,7 +63,7 @@ export function HomeScreen() {
             width={177}
             height={126}
             backgroundColor="#E6D3C7"
-            illustration={require('../../assets/images/After Solah.png')}
+            illustration={require('@/assets/images/After Soah.png')}
           />
         </View>
       </View>
