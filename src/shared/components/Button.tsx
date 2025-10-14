@@ -11,9 +11,9 @@ import {
   ViewStyle,
 } from "react-native";
 
-type Variant = "filled" | "ghost" | "outline";
+export type Variant = "filled" | "ghost" | "outline";
 
-interface ButtonProps {
+export interface ButtonProps {
   title: string;
   onPress?: (e: GestureResponderEvent) => void;
   variant?: Variant;
@@ -25,7 +25,7 @@ interface ButtonProps {
   fullWidth?: boolean;
 }
 
-export default function Button({
+export function AppButton({
   title,
   onPress,
   variant = "filled",
@@ -36,7 +36,7 @@ export default function Button({
   textStyle,
   fullWidth = true,
 }: ButtonProps) {
-  console.log("Button rendered with title:", title);
+
   const backgroundColor =
     variant === "filled"
       ? "#A46A3D" // brown primary color from Figma
