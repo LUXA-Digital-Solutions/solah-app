@@ -84,7 +84,7 @@ export function AppButton({
   } else if (variant === "outline") {
     textColor = colors.primary[700];
   } else {
-    textColor = colors.neutral[700];
+    textColor = colors.primary[700];
   }
 
   const containerStyles = [
