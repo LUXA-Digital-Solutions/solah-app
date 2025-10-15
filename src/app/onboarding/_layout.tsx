@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 
-export default function RootLayout() {
+function Layout() {
   return (
     <Stack
       screenOptions={{
@@ -8,8 +8,9 @@ export default function RootLayout() {
         animation: "none",
       }}
     >
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="onboarding" />
+      <Stack.Screen name="index" />
     </Stack>
   );
 }
+
+export default Layout;
