@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 
-export function OnboardingScreen() {
+export function GuideHome() {
   return (
     <View
       style={{
@@ -9,7 +9,7 @@ export function OnboardingScreen() {
         alignItems: "center",
       }}
     >
-      <Text>Onboarding Screen</Text>
+      <Text>Guide Screen</Text>
     </View>
   );
 }
