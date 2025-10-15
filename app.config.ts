@@ -10,18 +10,23 @@ const OWNER = "luxa-digitals";
 const APP_NAME = "Solah App";
 const SCHEME = "com.luxa.solahapp";
 
-const IOS_ICON = "./assets/images/icon.png";
+const appIcons = {
+  lightBg: "#ffffff",
+  darkBg: "#000000",
+} as const;
+
+const IOS_ICON = "./assets/appIcons/icon.png";
 const ADAPTIVE_ICON = {
-  bgColor: "#E6F4FE",
-  fgImage: "./assets/images/android-icon-foreground.png",
-  bgImage: "./assets/images/android-icon-background.png",
-  mcImage: "./assets/images/android-icon-monochrome.png",
+  bgColor: appIcons.lightBg,
+  fgImage: "./assets/appIcons/android-icon-foreground.png",
+  bgImage: "./assets/appIcons/android-icon-background.png",
+  mcImage: "./assets/appIcons/android-icon-monochrome.png",
 };
 const SPLASH_ICON = {
-  image: "./assets/images/splash-icon.png",
-  bgColor: "#ffffff",
-  darkImage: "./assets/images/splash-icon.png", // Not setup currently.
-  darkBgColor: "#000000"
+  image: "./assets/appIcons/splash-icon.png",
+  bgColor: appIcons.lightBg,
+  darkImage: "./assets/appIcons/splash-icon.png", // Not setup currently.
+  darkBgColor: appIcons.darkBg,
 };
 
 // Environment-specific overrides
@@ -54,8 +59,6 @@ export default ( { config }: ConfigContext ): ExpoConfig => {
   const env =
     ( process.env.APP_ENV as "development" | "preview" | "production" ) ||
     "development";
-
-  console.log( "⚙️ Building app for environment:", env );
 
   const { name, scheme } =
     getDynamicAppConfig( env );
