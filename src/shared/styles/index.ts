@@ -1,4 +1,4 @@
-export { colors, appIcons } from "./colors";
+export { colors } from "./colors";
 export { fontsize, fontweight } from "./font";
 export {
   spacing,

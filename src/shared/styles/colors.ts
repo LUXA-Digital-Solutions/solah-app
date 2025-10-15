@@ -67,19 +67,3 @@ export const colors = {
 } as const;
 
 export type Colors = typeof colors;
-
-// Referenced in app.config.ts (changes only apply on rebuild)
-export const appIcons = {
-  adaptiveIcon: {
-    bg: colors.neutral[100],
-  },
-  icon: {
-    bg: colors.neutral[100],
-  },
-  splash: {
-    bg: colors.neutral[100],
-    darkBg: colors.neutral[1000],
-  },
-} as const;
-
-export type AppIcons = typeof appIcons;

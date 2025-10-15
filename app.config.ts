@@ -1,8 +1,6 @@
 // app.config.js
 import { ConfigContext, ExpoConfig } from "expo/config";
 
-import { appIcons } from "@/shared/styles";
-
 import { version } from "./package.json";
 
 const EAS_PROJECT_ID = "8adc6578-e4a8-4fa8-98b4-37ab84ad6a76";
@@ -12,18 +10,23 @@ const OWNER = "luxa-digitals";
 const APP_NAME = "Solah App";
 const SCHEME = "com.luxa.solahapp";
 
+const appIcons = {
+  lightBg: "#ffffff",
+  darkBg: "#000000",
+} as const;
+
 const IOS_ICON = "./assets/appIcons/icon.png";
 const ADAPTIVE_ICON = {
-  bgColor: appIcons.adaptiveIcon.bg,
+  bgColor: appIcons.lightBg,
   fgImage: "./assets/appIcons/android-icon-foreground.png",
   bgImage: "./assets/appIcons/android-icon-background.png",
   mcImage: "./assets/appIcons/android-icon-monochrome.png",
 };
 const SPLASH_ICON = {
   image: "./assets/appIcons/splash-icon.png",
-  bgColor: appIcons.splash.bg,
+  bgColor: appIcons.lightBg,
   darkImage: "./assets/appIcons/splash-icon.png", // Not setup currently.
-  darkBgColor: appIcons.splash.darkBg,
+  darkBgColor: appIcons.darkBg,
 };
 
 // Environment-specific overrides
