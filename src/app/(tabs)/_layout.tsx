@@ -3,6 +3,7 @@ import { Tabs } from "expo-router";
 function Layout() {
   return (
     <Tabs
+      initialRouteName="home"
       screenOptions={{
         headerShown: false,
         animation: "none",
