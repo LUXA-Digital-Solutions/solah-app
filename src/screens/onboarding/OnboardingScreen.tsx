@@ -1,14 +1,10 @@
 import { View, Text } from "react-native";
 
+import { emptyScreenStyle } from "@/shared/styles";
+
 export function OnboardingScreen() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <View style={emptyScreenStyle.container}>
       <Text>Onboarding Screen</Text>
     </View>
   );
