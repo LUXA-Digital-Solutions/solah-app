@@ -1,8 +1,3 @@
-
-
 export function Image() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
