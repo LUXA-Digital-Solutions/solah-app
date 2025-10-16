@@ -2,6 +2,7 @@ import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { HomeSection as AdhkarHomeSection } from "@/features/adhkar/components/HomeSection";
+// import { ImageComponent } from "@/features/solah/components/ImageComponent";
 import { screenStyle } from "@/shared/styles";
 
 /**
@@ -32,6 +33,14 @@ export function HomeScreen() {
       }}
     >
       <AdhkarHomeSection />
+
+      {/* Test ImageComponent */}
+
+      {/* <ImageComponent
+        style={{ width: 150, height: 150, borderColor: "red", borderWidth: 2, borderRadius: 30 }}
+        src={require("@/assets/images/react-logo.png")}
+        contentFit="contain"
+      /> */}
     </ScrollView>
   );
 }
