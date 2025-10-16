@@ -35,21 +35,23 @@ jobs:
       app_version: ${{ needs.read_app_version.outputs.app_version }}
 
   # 2) Ask EAS if we already have a compatible iOS build
-  get_ios_build:
-    name: Check for existing iOS build (same runtime/app version)
-    needs: [read_app_version]
-    type: get-build
-    params:
-      platform: ios
-      profile: preview
-      runtime_version: ${{ needs.read_app_version.outputs.app_version }}
-      app_version: ${{ needs.read_app_version.outputs.app_version }}
+  # get_ios_build:
+  #   name: Check for existing iOS build (same runtime/app version)
+  #   needs: [read_app_version]
+  #   type: get-build
+  #   params:
+  #     platform: ios
+  #     profile: preview
+  #     runtime_version: ${{ needs.read_app_version.outputs.app_version }}
+  #     app_version: ${{ needs.read_app_version.outputs.app_version }}
 
   # 3) If a build exists => push OTA update
   update_if_build:
     name: Publish preview update (if build exists)
-    needs: [get_android_build, get_ios_build, read_app_version]
-    if: ${{ needs.get_android_build.outputs.build_id || needs.get_ios_build.outputs.build_id }}
+    # needs: [get_android_build, get_ios_build, read_app_version]
+    needs: [get_android_build, read_app_version]
+    # if: ${{ needs.get_android_build.outputs.build_id || needs.get_ios_build.outputs.build_id }}
+    if: ${{ needs.get_android_build.outputs.build_id }}
     type: update
     environment: preview
     params:
@@ -68,11 +70,11 @@ jobs:
       profile: preview
 
   # 5) If iOS build missing => create one
-  build_ios_if_missing:
-    name: Build iOS (if no build for this version)
-    needs: [get_ios_build]
-    if: ${{ !needs.get_ios_build.outputs.build_id }}
-    type: build
-    params:
-      platform: ios
-      profile: preview
+  # build_ios_if_missing:
+  #   name: Build iOS (if no build for this version)
+  #   needs: [get_ios_build]
+  #   if: ${{ !needs.get_ios_build.outputs.build_id }}
+  #   type: build
+  #   params:
+  #     platform: ios
+  #     profile: preview
