@@ -33,14 +33,6 @@ export function HomeScreen() {
       }}
     >
       <AdhkarHomeSection />
-
-      {/* Test ImageComponent */}
-
-      {/* <ImageComponent
-        style={{ width: 150, height: 150, borderColor: "red", borderWidth: 2, borderRadius: 30 }}
-        src={require("@/assets/images/react-logo.png")}
-        contentFit="contain"
-      /> */}
     </ScrollView>
   );
 }
