@@ -2,7 +2,6 @@ import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { HomeSection as AdhkarHomeSection } from "@/features/adhkar/components/HomeSection";
-// import { ImageComponent } from "@/features/solah/components/ImageComponent";
 import { screenStyle } from "@/shared/styles";
 
 /**
