@@ -3,6 +3,7 @@ import { Pressable, ScrollView, Text, useWindowDimensions, View } from "react-na
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { HomeSection as AdhkarHomeSection } from "@/features/adhkar/components/HomeSection";
+import { PrayerTimesCard } from "@/features/home/components/PrayerTimesCard";
 import { fontsize, screenStyle } from "@/shared/styles";
 
 /**
@@ -30,6 +31,7 @@ export function HomeScreen() {
     <ScrollView
       style={{
         ...screenStyle.container,
+        backgroundColor: "white",
         paddingTop: top,
         paddingBottom: bottom,
       }}
@@ -42,6 +44,7 @@ export function HomeScreen() {
           alignItems: "center",
           justifyContent: "space-between",
           marginBottom: 24,
+          marginTop: 24,
         }}
       >
         <Text
@@ -71,6 +74,8 @@ export function HomeScreen() {
           </Pressable>
         </View>
       </View>
+
+      <PrayerTimesCard />
       <AdhkarHomeSection />
     </ScrollView>
   );
