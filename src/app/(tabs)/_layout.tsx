@@ -7,6 +7,10 @@ function Layout() {
       screenOptions={{
         headerShown: false,
         animation: "none",
+        tabBarActiveTintColor: "#A46A3D",
+        tabBarLabelStyle: {
+          fontWeight: "bold",
+        },
       }}
     >
       <Tabs.Screen name="home" />
