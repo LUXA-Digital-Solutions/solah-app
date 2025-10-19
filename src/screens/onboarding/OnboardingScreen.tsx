@@ -4,7 +4,7 @@ import { FlatList, useWindowDimensions, View } from "react-native";
 
 import { OnboardingContent } from "@/features/onboarding/components/OnboardingContent";
 import { onboardingData } from "@/features/onboarding/data/onboardingData";
-import { useOnboardingPersistence } from "@/features/onboarding/hooks/useOnboardingPersistence";
+import { useOnboardingStore } from "@/features-onboarding/store";
 import { AppButton, ProgressBar } from "@/shared/components";
 
 import { styles } from "./OnboardingScreen.styles";
@@ -14,7 +14,7 @@ export function OnboardingScreen() {
   const flatListRef = useRef<FlatList>(null);
   const { width: windowWidth } = useWindowDimensions();
   const router = useRouter();
-  const { markOnboardingCompleted } = useOnboardingPersistence();
+  const setHasOnboarded = useOnboardingStore((s) => s.setHasOnboarded);
 
   const progressPercent = (currentIndex / (onboardingData.length - 1)) * 100;
 
@@ -29,7 +29,7 @@ export function OnboardingScreen() {
   };
 
   const completeOnboarding = async () => {
-    await markOnboardingCompleted();
+    setHasOnboarded(true);
     router.replace("/");
   };
 
