@@ -1,10 +1,8 @@
 import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { HomeSection as AdhkarHomeSection } from "@/features/adhkar/components/HomeSection";
-import { HomeTopSection } from "@/features/home/components/HomeTopSection";
-import { PrayerGuideCard } from "@/features/home/components/PrayerGuideCard";
-import { PrayerTimesCard } from "@/features/home/components/PrayerTimesCard";
+import { HomeSection as AdhkarHomeSection } from "@/features-adhkar/components/HomeSection";
+import { TitleBar, PrayerGuideCard, PrayerTimesCard } from "@/features-home/components";
 import { screenStyle } from "@/shared/styles";
 
 /**
@@ -32,13 +30,12 @@ export function HomeScreen() {
         ...screenStyle.container,
         backgroundColor: "white",
         paddingTop: top,
-        paddingBottom: bottom,
+        paddingBottom: bottom, // TODO: Need to be adjusted for tab height
       }}
     >
-      <HomeTopSection />
+      <TitleBar />
       <PrayerTimesCard />
       <AdhkarHomeSection />
-
       <PrayerGuideCard />
     </ScrollView>
   );
