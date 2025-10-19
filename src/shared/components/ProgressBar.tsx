@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { View, StyleSheet, Animated } from "react-native";
 
-import { colors } from "@/shared/styles";
+import { background, border } from "@/shared/styles";
 
 interface ProgressBarProps {
   percent: number;
@@ -65,12 +65,13 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 6,
     borderRadius: 3,
+    borderColor: border.default.tertiary,
     overflow: "hidden",
-    backgroundColor: colors.primary[200],
+    backgroundColor: background.default.secondary,
   },
   filled: {
     height: "100%",
-    backgroundColor: colors.primary[400],
+    backgroundColor: background.brand.primary,
     borderRadius: 3,
   },
 });

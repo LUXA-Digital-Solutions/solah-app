@@ -1,10 +1,11 @@
+import { useRouter } from "expo-router";
 import { View, Text, useWindowDimensions } from "react-native";
 
-import { colors, fontsize } from "@/shared/styles";
+import { Card } from "@/features-adhkar/components/Card";
+import { context, fontsize } from "@/shared/styles";
 
-import { Card } from "./Card";
-
-export function HomeSection() {
+export function AdhkarCard() {
+  const router = useRouter();
   const { width } = useWindowDimensions();
   const CONTAINER_WIDTH = Math.min(380, width - 20);
 
@@ -16,7 +17,7 @@ export function HomeSection() {
           textAlign: "left",
           marginBottom: 20,
           fontWeight: "bold",
-          color: "#333333",
+          color: context.brand.primary,
         }}
       >
         Adhkar
@@ -29,7 +30,6 @@ export function HomeSection() {
           width: CONTAINER_WIDTH,
           alignSelf: "center",
           gap: 8,
-          borderColor: "#ccc",
           paddingHorizontal: 0,
         }}
       >
@@ -37,37 +37,48 @@ export function HomeSection() {
         <View style={{ width: "50%", justifyContent: "flex-start" }}>
           <Card
             title="Before Prayer"
-            subtitle={`Upon\ncompleting\nthe ablution`}
-            onPress={() => {}}
+            subtitle="Upon completing the ablution"
+            onPress={() => {
+              router.push("/adhkar/before");
+            }}
             variant="large"
             width="100%"
             height={268}
-            backgroundColor={colors.primary[700]}
+            bgStyle="dark"
             illustration={require("@/assets/images/solah_illustrations/Group.png")}
           />
         </View>
 
         {/* Right - Two Small Cards Stacked */}
-        <View style={{ width: "50%", flexDirection: "column", justifyContent: "space-between" }}>
+        <View
+          style={{
+            width: "50%",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
           <Card
             title="During Prayer"
             subtitle="While bowing in prayer (Rukoo')"
-            onPress={() => {}}
+            onPress={() => {
+              router.push("/adhkar/during");
+            }}
             variant="small"
             width={177}
             height={129}
-            backgroundColor={colors.primary[200]}
+            bgStyle="light"
             illustration={require("@/assets/images/solah_illustrations/Prostration.png")}
           />
-          {/*<View style={{ height: 16 }} />*/}
           <Card
             title="After Prayer"
             subtitle="Remembrance after saläm"
-            onPress={() => {}}
+            onPress={() => {
+              router.push("/adhkar/after");
+            }}
             variant="small"
             width={177}
             height={129}
-            backgroundColor={colors.primary[200]}
+            bgStyle="light"
             illustration={require("@/assets/images/solah_illustrations/AfterSolah.png")}
           />
         </View>

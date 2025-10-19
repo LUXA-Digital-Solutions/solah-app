@@ -21,12 +21,12 @@ export const TitleBar = () => {
     >
       <Text
         style={{
-          fontSize: fontsize.xxxl,
+          fontSize: fontsize.xxl,
           textAlign: "left",
           fontWeight: "bold",
         }}
       >
-        Prayer Guide
+        Solah Guide
       </Text>
 
       <View

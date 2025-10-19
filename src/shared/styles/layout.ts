@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-import { colors } from "./colors";
+import { background } from "./colors";
 
 // SPACING
 export const spacing = {
@@ -40,7 +40,7 @@ export type BorderWidth = keyof typeof borderWidth;
 // SCREEN STYLES
 
 const baseStyle = {
-  bgColor: colors.primary[100],
+  bgColor: background.default.primary,
   padding: spacing.lg,
 };
 

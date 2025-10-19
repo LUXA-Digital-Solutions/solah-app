@@ -67,3 +67,48 @@ export const colors = {
 } as const;
 
 export type Colors = typeof colors;
+
+export const background = {
+  default: {
+    primary: colors.neutral[100],
+    secondary: colors.neutral[300],
+    tertiary: colors.neutral[800],
+    inverted: colors.neutral[1000],
+  },
+  brand: {
+    primary: colors.primary[500],
+    secondary: colors.primary[700],
+    tertiary: colors.primary[900],
+    inverted: colors.primary[100],
+  },
+} as const;
+export type Background = typeof background;
+
+export const border = {
+  default: {
+    primary: colors.neutral[800],
+    secondary: colors.neutral[500],
+    tertiary: colors.neutral[200],
+  },
+  brand: {
+    primary: colors.primary[400],
+    secondary: colors.primary[600],
+    inverted: colors.primary[900],
+  },
+} as const;
+export type Border = typeof border;
+
+export const context = {
+  default: {
+    primary: colors.neutral[1000],
+    secondary: colors.neutral[700],
+    tertiary: colors.neutral[400],
+    inverted: colors.neutral[100],
+  },
+  brand: {
+    primary: colors.primary[900],
+    secondary: colors.primary[500],
+    inverted: colors.primary[100],
+  },
+} as const;
+export type Context = typeof context;

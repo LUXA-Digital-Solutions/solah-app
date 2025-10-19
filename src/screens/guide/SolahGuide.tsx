@@ -2,10 +2,14 @@ import { View, Text } from "react-native";
 
 import { emptyScreenStyle } from "@/shared/styles";
 
-export function SolahTimeScreen() {
+interface SolahGuideProps {
+  solahName: string;
+}
+
+export function SolahGuide({ solahName }: SolahGuideProps) {
   return (
     <View style={emptyScreenStyle.container}>
-      <Text>Solah Time Screen</Text>
+      <Text>Solah Guide Screen: {solahName}</Text>
     </View>
   );
 }
