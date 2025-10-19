@@ -2,10 +2,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { Home, BookOpenText, Bolt } from "lucide-react-native";
 
-export function TabsLayout() {
+function Layout() {
   return (
     <Tabs
+      initialRouteName="home"
       screenOptions={{
+        headerShown: false,
+        animation: "none",
         tabBarActiveTintColor: "#A46A3D",
         tabBarLabelStyle: {
           fontWeight: "bold",
@@ -46,4 +49,4 @@ export function TabsLayout() {
   );
 }
 
-export default TabsLayout;
+export default Layout;
