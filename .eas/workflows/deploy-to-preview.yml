@@ -1,7 +1,7 @@
-name: Deploy to preview
+name: Preview a pull request
 
 on:
-  pull_request:
+  push:
     branches: ['main']
     paths:
       - src/**
@@ -57,7 +57,7 @@ jobs:
     params:
       platform: android
       channel: preview
-      message: "Preview update for PR #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}"
+      message: "${{ github.ref_name }}: ${{ github.sha }}"
 
   # 4) If Android build missing => create one
   build_if_missing:
