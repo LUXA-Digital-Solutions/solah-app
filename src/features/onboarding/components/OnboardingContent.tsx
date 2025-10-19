@@ -25,7 +25,7 @@ export function OnboardingContent({ imgsrc, title, description, imgPos = "top" }
 
   const OnboardingImage = () => (
     <View style={styles.imageContainer}>
-      <Image source={imgsrc} style={styles.image} resizeMode="contain" />
+      <Image source={imgsrc} style={styles.image} contentFit="contain" />
     </View>
   );
 
