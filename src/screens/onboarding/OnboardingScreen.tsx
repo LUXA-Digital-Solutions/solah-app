@@ -1,69 +1,17 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useRef, useState } from "react";
-import { FlatList, useWindowDimensions, View, Text, Image } from "react-native";
-
+import { FlatList, useWindowDimensions, View } from "react-native";
+import { useRouter } from "expo-router";
 import { AppButton, ProgressBar } from "@/shared/components";
-
+import { OnboardingContent } from "@/features/onboarding/components/OnboardingContent";
+import { useOnboardingPersistence } from "@/features/onboarding/hooks/useOnboardingPersistence";
+import { onboardingData } from "@/features/onboarding/data/onboardingData";
 import { styles } from "./OnboardingScreen.styles";
-
-const onboardingData = [
-  {
-    id: 1,
-    title: "Step-by-step Prayer Guide",
-    description: "Learn how to perform prayers correctly with detailed step-by-step guidance.",
-    image: require("@/assets/images/onboarding-screen-illustrations/Prayer Illustration.png"),
-    layout: "imageFirst",
-  },
-  {
-    id: 2,
-    title: "Daily and Monthly Prayer-timetable",
-    description: "Never miss a prayer with accurate daily and monthly prayer schedules.",
-    image: require("@/assets/images/onboarding-screen-illustrations/Calender Illustration.png"),
-    layout: "titleFirst",
-  },
-  {
-    id: 3,
-    title: "Qibla Finder based on user's location",
-    description: "Find the correct prayer direction (Qibla) from anywhere in the world.",
-    image: require("@/assets/images/onboarding-screen-illustrations/Compass Illustration.png"),
-    layout: "imageFirst",
-  },
-];
-
-const useOnboardingPersistence = () => {
-  const markOnboardingCompleted = async () => {
-    try {
-      await AsyncStorage.setItem("hasCompletedOnboarding", "true");
-    } catch {
-      // Error handling kept silent for production
-    }
-  };
-
-  const checkOnboardingCompleted = async () => {
-    try {
-      const value = await AsyncStorage.getItem("hasCompletedOnboarding");
-      return value !== null;
-    } catch {
-      return false;
-    }
-  };
-
-  return { markOnboardingCompleted, checkOnboardingCompleted };
-};
-
-const useTabNavigation = () => {
-  const navigateToMainTabs = () => {
-    // TODO: Replace with actual tab navigation
-  };
-
-  return { navigateToMainTabs };
-};
 
 export function OnboardingScreen() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const { width: windowWidth } = useWindowDimensions();
-  const { navigateToMainTabs } = useTabNavigation();
+  const router = useRouter();
   const { markOnboardingCompleted } = useOnboardingPersistence();
 
   const progressPercent = (currentIndex / (onboardingData.length - 1)) * 100;
@@ -80,31 +28,17 @@ export function OnboardingScreen() {
 
   const completeOnboarding = async () => {
     await markOnboardingCompleted();
-    navigateToMainTabs();
-  };
-
-  const skipOnboarding = async () => {
-    await markOnboardingCompleted();
-    navigateToMainTabs();
+    router.replace("/");
   };
 
   const renderItem = ({ item }: { item: (typeof onboardingData)[0] }) => (
-    <View style={[styles.screenContainer, { width: windowWidth }]}>
-      {item.layout === "imageFirst" && (
-        <>
-          <Image source={item.image} style={styles.illustration} resizeMode="contain" />
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.description}>{item.description}</Text>
-        </>
-      )}
-
-      {item.layout === "titleFirst" && (
-        <>
-          <Text style={styles.title}>{item.title}</Text>
-          <Image source={item.image} style={styles.illustration} resizeMode="contain" />
-          <Text style={styles.description}>{item.description}</Text>
-        </>
-      )}
+    <View style={{ width: windowWidth }}>
+      <OnboardingContent
+        imgsrc={item.imgsrc}
+        title={item.title}
+        description={item.description}
+        imgPos={item.imgPos}
+      />
     </View>
   );
 
@@ -136,14 +70,13 @@ export function OnboardingScreen() {
           style={styles.continueButton}
         />
 
-        {currentIndex < onboardingData.length - 1 && (
-          <AppButton
-            title="Skip"
-            variant="outline"
-            onPress={skipOnboarding}
-            style={styles.skipButton}
-          />
-        )}
+        <AppButton
+          title="Skip"
+          variant="outline"
+          onPress={completeOnboarding}
+          style={styles.skipButton}
+          disabled={currentIndex === onboardingData.length - 1}
+        />
       </View>
     </View>
   );
