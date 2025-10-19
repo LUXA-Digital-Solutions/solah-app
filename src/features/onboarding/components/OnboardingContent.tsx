@@ -1,9 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
-
-import { Image } from "@/shared/components";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 type Props = {
-  imgsrc: string;
+  imgsrc: any;
   title: string;
   description: string;
   imgPos?: "top" | "middle" | "bottom";
@@ -24,7 +22,7 @@ export function OnboardingContent({ imgsrc, title, description, imgPos = "top" }
 
   const OnboardingImage = () => (
     <View style={styles.imageContainer}>
-      <Image src={imgsrc} style={styles.image} />
+      <Image source={imgsrc} style={styles.image} resizeMode="contain" />
     </View>
   );
 
@@ -70,36 +68,49 @@ export function OnboardingContent({ imgsrc, title, description, imgPos = "top" }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    paddingHorizontal: 20,
+    alignItems: "flex-start",
     justifyContent: "center",
-    paddingHorizontal: 24,
-    paddingVertical: 40,
+    paddingTop: 40,
   },
   imageContainer: {
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 16,
+    marginTop: 16,
+    width: "100%",
   },
   image: {
-    width: 250,
-    height: 250,
-    resizeMode: "contain",
+    width: 280,
+    height: 280,
   },
   textContainer: {
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     marginBottom: 16,
+    width: "100%",
   },
   title: {
-    fontSize: 22,
-    fontWeight: "600",
-    textAlign: "center",
-    color: "#1a1a1a",
-    marginBottom: 8,
+    width: "70%",
+    fontFamily: "Figtree",
+    fontWeight: "700",
+    fontSize: 28,
+    lineHeight: 34,
+    textAlign: "left",
+    letterSpacing: 0,
+    marginBottom: 16,
+    marginTop: 16,
+    color: "#333333",
   },
   description: {
-    fontSize: 14,
-    color: "#6b6b6b",
-    textAlign: "center",
-    lineHeight: 20,
+    width: "75%",
+    fontFamily: "Figtree",
+    fontWeight: "400",
+    fontSize: 16,
+    lineHeight: 24,
+    textAlign: "left",
+    letterSpacing: 0,
+    color: "#333333",
+    paddingHorizontal: 0,
+    marginBottom: 25,
   },
 });
