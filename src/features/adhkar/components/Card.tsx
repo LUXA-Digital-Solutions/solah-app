@@ -37,7 +37,7 @@ export const Card = ({
 
   if (isFirstCard) {
     titleColor = colors.primary[100];
-    subtitleColor = colors.primary[200];
+    subtitleColor = colors.white;
   }
 
   return (
@@ -89,9 +89,8 @@ export const Card = ({
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FDFDFD",
-    padding: 10,
-    borderRadius: 4,
-    borderWidth: 1,
+    padding: 4,
+    borderRadius: 10,
     borderColor: "#E8E8E8",
     margin: 0,
     overflow: "hidden",
@@ -116,6 +115,7 @@ export const styles = StyleSheet.create({
     lineHeight: 32,
     marginTop: 8,
     marginBottom: 8,
+    fontWeight: "semibold",
   },
   otherCardsTextWrapper: {
     top: 15,
@@ -131,6 +131,7 @@ export const styles = StyleSheet.create({
     color: "#483020",
     lineHeight: 24,
     flexWrap: "wrap",
+    fontWeight: "semibold",
   },
   illustration: {
     position: "absolute",
