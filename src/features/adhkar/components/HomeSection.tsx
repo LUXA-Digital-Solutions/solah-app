@@ -16,29 +16,31 @@ export function HomeSection() {
           textAlign: "left",
           marginBottom: 20,
           fontWeight: "bold",
-          paddingLeft: 10,
           color: "#333333",
         }}
       >
         Adhkar
       </Text>
+
       <View
         style={{
           flexDirection: "row",
+          justifyContent: "space-between",
           width: CONTAINER_WIDTH,
           alignSelf: "center",
           gap: 8,
+          borderColor: "#ccc",
           paddingHorizontal: 0,
         }}
       >
         {/* Left - Large Card */}
-        <View style={{ width: 170, justifyContent: "flex-start" }}>
+        <View style={{ width: "50%", justifyContent: "flex-start" }}>
           <Card
             title="Before Prayer"
             subtitle={`Upon\ncompleting\nthe ablution`}
             onPress={() => {}}
             variant="large"
-            width={170}
+            width="100%"
             height={268}
             backgroundColor={colors.primary[700]}
             illustration={require("@/assets/images/solah_illustrations/Group.png")}
@@ -46,25 +48,25 @@ export function HomeSection() {
         </View>
 
         {/* Right - Two Small Cards Stacked */}
-        <View style={{ width: 160, justifyContent: "flex-start" }}>
+        <View style={{ width: "50%", flexDirection: "column", justifyContent: "space-between" }}>
           <Card
             title="During Prayer"
             subtitle="While bowing in prayer (Rukoo')"
             onPress={() => {}}
             variant="small"
             width={177}
-            height={126}
+            height={129}
             backgroundColor={colors.primary[200]}
             illustration={require("@/assets/images/solah_illustrations/Prostration.png")}
           />
-          <View style={{ height: 16 }} />
+          {/*<View style={{ height: 16 }} />*/}
           <Card
             title="After Prayer"
             subtitle="Remembrance after saläm"
             onPress={() => {}}
             variant="small"
             width={177}
-            height={126}
+            height={129}
             backgroundColor={colors.primary[200]}
             illustration={require("@/assets/images/solah_illustrations/AfterSolah.png")}
           />

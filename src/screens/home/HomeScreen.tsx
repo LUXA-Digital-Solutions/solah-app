@@ -2,6 +2,9 @@ import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { HomeSection as AdhkarHomeSection } from "@/features/adhkar/components/HomeSection";
+import { HomeTopSection } from "@/features/home/components/HomeTopSection";
+import { PrayerGuideCard } from "@/features/home/components/PrayerGuideCard";
+import { PrayerTimesCard } from "@/features/home/components/PrayerTimesCard";
 import { screenStyle } from "@/shared/styles";
 
 /**
@@ -27,11 +30,16 @@ export function HomeScreen() {
     <ScrollView
       style={{
         ...screenStyle.container,
+        backgroundColor: "white",
         paddingTop: top,
         paddingBottom: bottom,
       }}
     >
+      <HomeTopSection />
+      <PrayerTimesCard />
       <AdhkarHomeSection />
+
+      <PrayerGuideCard />
     </ScrollView>
   );
 }
