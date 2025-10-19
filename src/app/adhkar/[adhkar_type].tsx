@@ -1,11 +1,12 @@
-import { View, Text } from "react-native";
+import { useLocalSearchParams } from "expo-router";
+
+import { AdhkarList } from "@/screens/adhkar";
 
 function AdhkarType() {
-  return (
-    <View>
-      <Text>AdhkarType</Text>
-    </View>
-  );
+  const { adhkar_type } = useLocalSearchParams();
+  const name = Array.isArray(adhkar_type) ? adhkar_type[0] : adhkar_type;
+
+  return <AdhkarList adhkar_type={name} />;
 }
 
 export default AdhkarType;

@@ -1,11 +1,12 @@
-import { View, Text } from "react-native";
+import { useLocalSearchParams } from "expo-router/build/hooks";
+
+import { SolahGuide } from "@/screens/guide";
 
 function SolahName() {
-  return (
-    <View>
-      <Text>SolahName</Text>
-    </View>
-  );
+  const { solah_name } = useLocalSearchParams();
+  const name = Array.isArray(solah_name) ? solah_name[0] : solah_name;
+
+  return <SolahGuide solahName={name} />;
 }
 
 export default SolahName;

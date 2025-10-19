@@ -1,6 +1,7 @@
+import { Image } from "expo-image";
 import { View, Text, StyleSheet } from "react-native";
 
-import { Image } from "@/shared/components";
+import { context } from "@/shared/styles";
 
 type Props = {
   imgsrc: string;
@@ -24,7 +25,7 @@ export function OnboardingContent({ imgsrc, title, description, imgPos = "top" }
 
   const OnboardingImage = () => (
     <View style={styles.imageContainer}>
-      <Image src={imgsrc} style={styles.image} />
+      <Image source={imgsrc} style={styles.image} />
     </View>
   );
 
@@ -93,12 +94,12 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "600",
     textAlign: "center",
-    color: "#1a1a1a",
+    color: context.brand.primary,
     marginBottom: 8,
   },
   description: {
     fontSize: 14,
-    color: "#6b6b6b",
+    color: context.brand.primary,
     textAlign: "center",
     lineHeight: 20,
   },

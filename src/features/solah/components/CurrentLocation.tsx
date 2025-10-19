@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react-native";
 import { Pressable, Text } from "react-native";
 
 import { useCurrentLocation } from "@/features-solah/hooks";
-import { fontsize } from "@/shared/styles";
+import { context, fontsize } from "@/shared/styles";
 
 export function CurrentLocation() {
   const { location } = useCurrentLocation();
@@ -25,13 +25,13 @@ export function CurrentLocation() {
         style={{
           fontSize: fontsize.xs,
           textAlign: "left",
-          color: "white",
+          color: context.default.inverted,
         }}
       >
         {location}
       </Text>
 
-      <ChevronDown color={"white"} size={18} />
+      <ChevronDown color={context.default.inverted} size={18} />
     </Pressable>
   );
 }

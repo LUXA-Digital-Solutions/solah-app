@@ -1,6 +1,8 @@
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { Home, BookOpenText, Bolt } from "lucide-react-native";
+import { BookOpenText, Bolt } from "lucide-react-native";
+
+import { context } from "@/shared/styles";
 
 function Layout() {
   return (
@@ -8,8 +10,8 @@ function Layout() {
       initialRouteName="home"
       screenOptions={{
         headerShown: false,
-        animation: "none",
-        tabBarActiveTintColor: "#A46A3D",
+        animation: "shift",
+        tabBarActiveTintColor: context.brand.secondary,
         tabBarLabelStyle: {
           fontWeight: "bold",
         },
@@ -19,7 +21,7 @@ function Layout() {
         name="home"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => <Home color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
         }}
       />
       <Tabs.Screen

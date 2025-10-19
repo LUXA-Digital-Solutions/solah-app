@@ -1,3 +1,3 @@
 export { AdhkarHome } from "./AdhkarHome";
-export { AdhkarListScreen } from "./AdhkarListScreen";
-export { AdhkarDetailsScreen } from "./AdhkarDetailsScreen";
+export { AdhkarList } from "./AdhkarList";
+export { AdhkarDetailsScreen } from "./AdhkarDetails";

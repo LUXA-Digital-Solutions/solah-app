@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 
 import { useDateAndTime } from "@/features-solah/hooks";
-import { fontsize } from "@/shared/styles";
+import { context, fontsize } from "@/shared/styles";
 
 export function CurrentDateAndTime() {
   const { date, time } = useDateAndTime();
@@ -17,7 +17,7 @@ export function CurrentDateAndTime() {
         style={{
           fontSize: fontsize.xs,
           textAlign: "left",
-          color: "#E6D3C7",
+          color: context.brand.inverted,
         }}
       >
         {date}
@@ -28,7 +28,7 @@ export function CurrentDateAndTime() {
           fontSize: 42,
           textAlign: "left",
           fontWeight: "bold",
-          color: "white",
+          color: context.default.inverted,
         }}
       >
         {time}

@@ -10,7 +10,15 @@ import {
   ViewStyle,
 } from "react-native";
 
-import { borderRadius, borderWidth, colors, fontweight, spacing } from "@/shared/styles";
+import {
+  background,
+  border,
+  borderRadius,
+  borderWidth,
+  context,
+  fontweight,
+  spacing,
+} from "@/shared/styles";
 
 export type Variant = "filled" | "outline" | "ghost";
 
@@ -74,17 +82,17 @@ export function AppButton({
   textStyle,
   fullWidth = true,
 }: ButtonProps) {
-  const backgroundColor = variant === "filled" ? colors.primary[700] : "transparent";
+  const backgroundColor = variant === "filled" ? background.brand.secondary : "transparent";
 
-  const borderColor = variant === "outline" ? colors.primary[700] : "transparent";
+  const borderColor = variant === "outline" ? border.brand.secondary : "transparent";
 
   let textColor: string;
   if (variant === "filled") {
-    textColor = colors.white;
+    textColor = context.brand.inverted;
   } else if (variant === "outline") {
-    textColor = colors.primary[700];
+    textColor = context.brand.primary;
   } else {
-    textColor = colors.primary[700];
+    textColor = context.brand.primary;
   }
 
   const containerStyles = [

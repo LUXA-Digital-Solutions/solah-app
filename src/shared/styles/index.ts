@@ -1,4 +1,4 @@
-export { colors } from "./colors";
+export { colors, background, border, context } from "./colors";
 export { fontsize, fontweight } from "./font";
 export {
   spacing,

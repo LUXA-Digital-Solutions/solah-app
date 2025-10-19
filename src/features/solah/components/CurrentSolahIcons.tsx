@@ -2,9 +2,10 @@ import { CloudMoon, CloudSun, MoonStar, Sun, Sunset } from "lucide-react-native"
 import { View, Text } from "react-native";
 
 import { useCurrentSolah } from "@/features-solah/hooks";
+import { context, fontsize, fontweight } from "@/shared/styles";
 
-const currentIconColor = "#FFD700";
-const defaultIconColor = "#E6D3C7";
+const currentIconColor = context.default.inverted;
+const defaultIconColor = context.brand.inverted;
 const iconSize = 18;
 
 const TIMESOFSALAH = [
@@ -64,9 +65,10 @@ export function CurrentSolahIcons() {
           {time.icon(currentSolah === time.title)}
           <Text
             style={{
-              fontSize: 12,
               textAlign: "left",
               color: currentSolah === time.title ? currentIconColor : defaultIconColor,
+              fontWeight: currentSolah === time.title ? fontweight.extrabold : fontweight.normal,
+              fontSize: fontsize.xs,
             }}
           >
             {time.title}

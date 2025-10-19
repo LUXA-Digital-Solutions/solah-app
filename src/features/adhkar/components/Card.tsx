@@ -8,7 +8,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import { colors } from "@/shared/styles";
+import { background, context } from "@/shared/styles";
 
 export type AdhkarCardProps = {
   title: string;
@@ -17,7 +17,7 @@ export type AdhkarCardProps = {
   variant?: "large" | "small";
   width?: DimensionValue;
   height?: DimensionValue;
-  backgroundColor?: string;
+  bgStyle: "light" | "dark";
   illustration?: ImageSourcePropType;
 };
 
@@ -28,24 +28,23 @@ export const Card = ({
   variant = "small",
   width = 182,
   height = 126,
-  backgroundColor = "#FDFDFD",
+  bgStyle = "light",
   illustration,
 }: AdhkarCardProps) => {
-  let titleColor: string = colors.primary[400];
-  let subtitleColor: string = colors.primary[800];
-  const isFirstCard = backgroundColor === colors.primary[700];
+  const isLight = bgStyle === "light";
 
-  if (isFirstCard) {
-    titleColor = colors.primary[100];
-    subtitleColor = colors.white;
-  }
+  const titleColor = isLight ? context.brand.secondary : context.brand.inverted;
+
+  const subtitleColor = isLight ? context.brand.primary : context.default.inverted;
+
+  const bgColor = isLight ? background.brand.inverted : background.brand.secondary;
 
   return (
     <Pressable
       onPress={onPress}
       style={[
         styles.container,
-        { width, height, backgroundColor },
+        { width, height, backgroundColor: bgColor },
         variant === "large" && styles.largeContainer,
       ]}
     >
@@ -54,16 +53,12 @@ export const Card = ({
         <View
           style={[
             styles.textWrapper,
-            isFirstCard ? styles.firstCardTextWrapper : styles.otherCardsTextWrapper,
+            isLight ? styles.lightCardsTextWrapper : styles.darkCardTextWrapper,
           ]}
         >
           <Text style={[styles.title, { color: titleColor }]}>{title}</Text>
           <Text
-            style={[
-              styles.subtitle,
-              { color: subtitleColor },
-              isFirstCard && styles.firstCardSubtitle,
-            ]}
+            style={[styles.subtitle, { color: subtitleColor }, !isLight && styles.darkCardSubtitle]}
           >
             {subtitle}
           </Text>
@@ -76,7 +71,7 @@ export const Card = ({
           source={illustration}
           style={[
             styles.illustration,
-            isFirstCard ? styles.firstCardIllustration : styles.otherCardsIllustration,
+            isLight ? styles.lightCardsIllustration : styles.darkCardIllustration,
             { height: "100%" },
           ]}
           resizeMode="cover"
@@ -88,10 +83,8 @@ export const Card = ({
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FDFDFD",
     padding: 4,
     borderRadius: 10,
-    borderColor: "#E8E8E8",
     margin: 0,
     overflow: "hidden",
   },
@@ -106,29 +99,27 @@ export const styles = StyleSheet.create({
     right: 10,
     zIndex: 2,
   },
-  firstCardTextWrapper: {
+  darkCardTextWrapper: {
     top: "30%",
     transform: [{ translateY: -20 }],
   },
-  firstCardSubtitle: {
+  darkCardSubtitle: {
     fontSize: 24,
     lineHeight: 32,
     marginTop: 8,
     marginBottom: 8,
     fontWeight: "semibold",
   },
-  otherCardsTextWrapper: {
+  lightCardsTextWrapper: {
     top: 15,
   },
   title: {
     fontSize: 12,
     fontWeight: "bold",
-    color: "#B37B56",
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 20,
-    color: "#483020",
     lineHeight: 24,
     flexWrap: "wrap",
     fontWeight: "semibold",
@@ -138,11 +129,11 @@ export const styles = StyleSheet.create({
     right: -10,
     zIndex: 1,
   },
-  firstCardIllustration: {
+  darkCardIllustration: {
     width: 100,
     bottom: -30,
   },
-  otherCardsIllustration: {
+  lightCardsIllustration: {
     width: 90,
     bottom: 0,
   },
