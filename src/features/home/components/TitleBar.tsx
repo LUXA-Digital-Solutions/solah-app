@@ -3,7 +3,7 @@ import { View, Pressable, Text, useWindowDimensions } from "react-native";
 
 import { fontsize } from "@/shared/styles";
 
-export const HomeTopSection = () => {
+export const TitleBar = () => {
   const { width } = useWindowDimensions();
   const CONTAINER_WIDTH = Math.min(380, width - 20);
 

@@ -6,6 +6,9 @@
     "allowImportingTsExtensions": true,
     "typeRoots": ["./types"],
     "paths": {
+      "@/features-adhkar/*": ["./src/features/adhkar/*"],
+      "@/features-home/*": ["./src/features/home/*"],
+      "@/features-onboarding/*": ["./src/features/onboarding/*"],
       "@/features-solah/*": ["./src/features/solah/*"],
       "@/app/*": ["./src/app/*"],
       "@/screens/*": ["./src/screens/*"],
