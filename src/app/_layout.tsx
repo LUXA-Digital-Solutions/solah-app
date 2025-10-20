@@ -1,9 +1,11 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
+import { Providers } from "@/shared/components";
+
 export default function RootLayout() {
   return (
-    <>
+    <Providers>
       <StatusBar style="dark" />
       <Stack
         screenOptions={{
@@ -18,6 +20,6 @@ export default function RootLayout() {
         <Stack.Screen name="solah" />
         <Stack.Screen name="guide" />
       </Stack>
-    </>
+    </Providers>
   );
 }
