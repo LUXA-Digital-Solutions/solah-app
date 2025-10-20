@@ -1,40 +1,19 @@
 import { useRouter } from "expo-router";
-import { View, Text, useWindowDimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 import { Card } from "@/features-adhkar/components/Card";
 import { context, fontsize } from "@/shared/styles";
 
 export function AdhkarCard() {
   const router = useRouter();
-  const { width } = useWindowDimensions();
-  const CONTAINER_WIDTH = Math.min(380, width - 20);
 
   return (
     <>
-      <Text
-        style={{
-          fontSize: fontsize.xl,
-          textAlign: "left",
-          marginBottom: 20,
-          fontWeight: "bold",
-          color: context.brand.primary,
-        }}
-      >
-        Adhkar
-      </Text>
+      <Text style={styles.title}>Adhkar</Text>
 
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          width: CONTAINER_WIDTH,
-          alignSelf: "center",
-          gap: 8,
-          paddingHorizontal: 0,
-        }}
-      >
+      <View style={styles.mainCardWrapper}>
         {/* Left - Large Card */}
-        <View style={{ width: "50%", justifyContent: "flex-start" }}>
+        <View style={styles.largeCardWrapper}>
           <Card
             title="Before Prayer"
             subtitle="Upon completing the ablution"
@@ -42,7 +21,7 @@ export function AdhkarCard() {
               router.push("/adhkar/before");
             }}
             variant="large"
-            width="100%"
+            // width="100%"
             height={268}
             bgStyle="dark"
             illustration={require("@/assets/images/solah_illustrations/Group.png")}
@@ -50,13 +29,7 @@ export function AdhkarCard() {
         </View>
 
         {/* Right - Two Small Cards Stacked */}
-        <View
-          style={{
-            width: "50%",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
+        <View style={styles.smallCardWrapper}>
           <Card
             title="During Prayer"
             subtitle="While bowing in prayer (Rukoo')"
@@ -64,7 +37,6 @@ export function AdhkarCard() {
               router.push("/adhkar/during");
             }}
             variant="small"
-            width={177}
             height={129}
             bgStyle="light"
             illustration={require("@/assets/images/solah_illustrations/Prostration.png")}
@@ -76,7 +48,6 @@ export function AdhkarCard() {
               router.push("/adhkar/after");
             }}
             variant="small"
-            width={177}
             height={129}
             bgStyle="light"
             illustration={require("@/assets/images/solah_illustrations/AfterSolah.png")}
@@ -86,3 +57,29 @@ export function AdhkarCard() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: fontsize.xl,
+    textAlign: "left",
+    marginBottom: 20,
+    fontWeight: "bold",
+    color: context.brand.primary,
+  },
+  mainCardWrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    alignSelf: "center",
+    gap: 8,
+    paddingHorizontal: 0,
+    boxSizing: "border-box",
+  },
+  largeCardWrapper: { width: "50%", justifyContent: "flex-start" },
+  smallCardWrapper: {
+    width: "48%",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    boxSizing: "border-box",
+  },
+});

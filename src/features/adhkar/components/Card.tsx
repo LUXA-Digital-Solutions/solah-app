@@ -15,7 +15,6 @@ export type AdhkarCardProps = {
   subtitle: string;
   onPress: () => void;
   variant?: "large" | "small";
-  width?: DimensionValue;
   height?: DimensionValue;
   bgStyle: "light" | "dark";
   illustration?: ImageSourcePropType;
@@ -26,7 +25,6 @@ export const Card = ({
   subtitle,
   onPress,
   variant = "small",
-  width = 182,
   height = 126,
   bgStyle = "light",
   illustration,
@@ -44,7 +42,7 @@ export const Card = ({
       onPress={onPress}
       style={[
         styles.container,
-        { width, height, backgroundColor: bgColor },
+        { height, backgroundColor: bgColor },
         variant === "large" && styles.largeContainer,
       ]}
     >
@@ -87,6 +85,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 0,
     overflow: "hidden",
+    width: "100%",
   },
   textContainer: {
     width: "100%",
