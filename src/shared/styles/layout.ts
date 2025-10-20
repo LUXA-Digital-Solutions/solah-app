@@ -62,24 +62,16 @@ export const borderWidth = {
 
 export const effect = StyleSheet.create({
   E0: {
-    shadowColor: colors.background.default.primary,
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.2,
+    boxShadow: "0px -2px 30px 4px rgba(51, 51, 51, 0.2)",
   },
   E1: {
-    shadowColor: colors.background.default.primary,
-    shadowOffset: { width: 4, height: 4 },
-    shadowOpacity: 0.04,
+    boxShadow: "4px 4px 8px 4px rgba(88, 92, 95, 0.04)",
   },
   E2: {
-    shadowColor: colors.background.default.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
+    boxShadow: "0px 4px 30px 4px rgba(88, 92, 95, 0.1)",
   },
   E3: {
-    shadowColor: colors.background.default.primary,
-    shadowOffset: { width: 4, height: 8 },
-    shadowOpacity: 0.2,
+    boxShadow: "4px 8px 30px 8px rgba(88, 92, 95, 0.2)",
   },
 });
 

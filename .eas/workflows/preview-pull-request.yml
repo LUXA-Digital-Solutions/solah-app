@@ -20,4 +20,5 @@ jobs:
     params:
       platform: android
       channel: development
-      message: "PR #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}"
+      message: "PR #${{ github.event.pull_request.number }}: $EAS_GITHUB_HEAD_REF"
+      
