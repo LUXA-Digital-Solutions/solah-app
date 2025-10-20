@@ -8,6 +8,7 @@ on:
       - index.js
       - app.config.ts
       - package.json
+      - assets/**
 
 jobs:
   # 0) Read the user-facing version from package.json and export it as a workflow output
@@ -57,7 +58,7 @@ jobs:
     params:
       platform: android
       channel: preview
-      message: "${{ github.ref_name }}: ${{ github.sha }}"
+      message: "${{ github.commit_message || 'New preview' }}"
 
   # 4) If Android build missing => create one
   build_if_missing:
