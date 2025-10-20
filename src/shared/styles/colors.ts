@@ -1,9 +1,9 @@
-export const colors = {
-  // Primitive Colors
+const palette = {
+  // Primitive palette
   white: "#FFFFFF",
   black: "#000000",
 
-  // Semantic Colors
+  // Semantic palette
   success: {
     light: "#84ebb4",
     bold: "#1fc16b",
@@ -38,7 +38,7 @@ export const colors = {
     1000: "#333333",
   },
 
-  // Theme Colors
+  // Theme palette
   primary: {
     100: "#e6d3c7",
     200: "#d9bdab",
@@ -66,49 +66,50 @@ export const colors = {
   },
 } as const;
 
-export type Colors = typeof colors;
-
 export const background = {
   default: {
-    primary: colors.neutral[100],
-    secondary: colors.neutral[300],
-    tertiary: colors.neutral[800],
-    inverted: colors.neutral[1000],
+    primary: palette.neutral[100],
+    secondary: palette.neutral[300],
+    tertiary: palette.neutral[800],
+    inverted: palette.neutral[1000],
   },
   brand: {
-    primary: colors.primary[500],
-    secondary: colors.primary[700],
-    tertiary: colors.primary[900],
-    inverted: colors.primary[100],
+    primary: palette.primary[500],
+    secondary: palette.primary[700],
+    tertiary: palette.primary[900],
+    inverted: palette.primary[100],
   },
 } as const;
-export type Background = typeof background;
 
 export const border = {
   default: {
-    primary: colors.neutral[800],
-    secondary: colors.neutral[500],
-    tertiary: colors.neutral[200],
+    primary: palette.neutral[800],
+    secondary: palette.neutral[500],
+    tertiary: palette.neutral[200],
   },
   brand: {
-    primary: colors.primary[400],
-    secondary: colors.primary[600],
-    inverted: colors.primary[900],
+    primary: palette.primary[400],
+    secondary: palette.primary[600],
+    inverted: palette.primary[900],
   },
 } as const;
-export type Border = typeof border;
 
 export const context = {
   default: {
-    primary: colors.neutral[1000],
-    secondary: colors.neutral[700],
-    tertiary: colors.neutral[400],
-    inverted: colors.neutral[100],
+    primary: palette.neutral[1000],
+    secondary: palette.neutral[700],
+    tertiary: palette.neutral[400],
+    inverted: palette.neutral[100],
   },
   brand: {
-    primary: colors.primary[900],
-    secondary: colors.primary[500],
-    inverted: colors.primary[100],
+    primary: palette.primary[900],
+    secondary: palette.primary[500],
+    inverted: palette.primary[100],
   },
 } as const;
-export type Context = typeof context;
+
+export const colors = {
+  background,
+  context,
+  border,
+} as const;
