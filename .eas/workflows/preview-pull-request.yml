@@ -16,7 +16,7 @@ jobs:
   update:
     name: Publish preview update (if build exists)
     type: update
-    environment: preview
+    environment: development
     params:
       platform: android
       channel: development
