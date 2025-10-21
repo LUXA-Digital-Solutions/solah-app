@@ -1,9 +1,14 @@
 import { View, Text } from "react-native";
 
-export function CurrentSolahTimes() {
+interface CurrentSolahTimesProps {
+  selectedDate: Date;
+}
+
+export function CurrentSolahTimes({ selectedDate }: CurrentSolahTimesProps) {
   return (
-    <View>
+    <View style={{ padding: 4 }}>
       <Text>CurrentSolahTimes</Text>
+      <Text>SelectedDate: {selectedDate.toISOString()}</Text>
     </View>
   );
 }
