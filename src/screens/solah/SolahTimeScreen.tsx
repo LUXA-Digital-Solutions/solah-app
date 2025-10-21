@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { PrayerTimesCard } from "@/features-solah/components";
+import { CurrentSolahTimes, PrayerTimesCard, SolahCalendar } from "@/features-solah/components";
 import { FindQiblaButton } from "@/features-solah/components/FindQiblaButton";
 import { TitleBar } from "@/shared/components";
 import { colors, screenStyle } from "@/shared/styles";
@@ -24,6 +25,7 @@ import { colors, screenStyle } from "@/shared/styles";
 
 export function SolahTimeScreen() {
   const { bottom } = useSafeAreaInsets();
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   return (
     <ScrollView
@@ -37,6 +39,8 @@ export function SolahTimeScreen() {
       <TitleBar title="Solah time" />
       <PrayerTimesCard style={{ marginTop: 0 }} />
       <FindQiblaButton />
+      <SolahCalendar setSelectedDate={setSelectedDate} />
+      <CurrentSolahTimes selectedDate={selectedDate} />
     </ScrollView>
   );
 }
