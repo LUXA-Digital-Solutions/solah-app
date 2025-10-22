@@ -20,7 +20,7 @@ export const List = ({ type }: AdhkarListProps) => {
     <View style={styles.wrapper}>
       <FlatList
         data={items}
-        renderItem={({ item }) => <ListItem key={item.id} item={item} />}
+        renderItem={({ item }) => <ListItem key={item.id} item={item} adhkar_type={type} />}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}
       />
