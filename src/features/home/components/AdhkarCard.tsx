@@ -1,7 +1,7 @@
 import { useRouter } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 
-import { Card } from "@/features-adhkar/components/Card";
+import { Card } from "@/features-adhkar/components";
 import { context, fontsize } from "@/shared/styles";
 
 export function AdhkarCard() {

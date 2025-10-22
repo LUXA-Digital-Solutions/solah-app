@@ -6,16 +6,14 @@ const BORDER_COLOR = colors.border.brand.primary;
 const TEXT_COLOR = colors.context.brand.primary;
 const BG = colors.background.default.primary;
 
-export const adhkarListItemStyles = StyleSheet.create({
+export const listItemStyles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.md,
-    marginHorizontal: spacing.md,
-    marginBottom: spacing.m,
-    borderRadius: borderRadius.lg,
-    borderWidth: borderWidth.md,
+    paddingVertical: spacing.m,
+    paddingHorizontal: spacing.s,
+    borderRadius: borderRadius[4],
+    borderWidth: borderWidth.sm,
     borderColor: BORDER_COLOR,
     backgroundColor: BG,
   },

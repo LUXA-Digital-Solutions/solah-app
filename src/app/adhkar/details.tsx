@@ -1,34 +1,12 @@
 import { useLocalSearchParams } from "expo-router";
-import { View, Text } from "react-native";
 
-import { adhkarData } from "@/features-adhkar/data";
+import { AdhkarType } from "@/features-adhkar/data";
+import { AdhkarDetails } from "@/screens/adhkar";
 
 function Details() {
-  const { id } = useLocalSearchParams<{ id: string }>();
-  const items = adhkarData.flatMap((group) => group.items).find((item) => item.id === id);
+  const { adhkar_type, id } = useLocalSearchParams<{ id: string; adhkar_type: string }>();
 
-  if (!items) {
-    return (
-      <View>
-        <Text>No item found.</Text>
-      </View>
-    );
-  }
-
-  const { title, entries } = items;
-
-  return (
-    <View>
-      <Text>Details for {title}</Text>
-      {entries.map((entry, index) => (
-        <View key={index}>
-          <Text>{entry.arabicText}</Text>
-          <Text>{entry.transliteration}</Text>
-          <Text>{entry.translation.en}</Text>
-        </View>
-      ))}
-    </View>
-  );
+  return <AdhkarDetails adhkar_type={adhkar_type as AdhkarType} id={id} />;
 }
 
 export default Details;

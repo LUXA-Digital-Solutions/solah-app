@@ -1,15 +1,27 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { emptyScreenStyle } from "@/shared/styles";
+import { List, TitleBar } from "@/features-adhkar/components";
+import { AdhkarType } from "@/features-adhkar/data";
+import { screenStyle } from "@/shared/styles";
 
-interface AdhkarListScreenProps {
-  adhkar_type: string;
+interface AdhkarListProps {
+  adhkar_type: AdhkarType;
 }
 
-export function AdhkarList({ adhkar_type }: AdhkarListScreenProps) {
+export function AdhkarList({ adhkar_type }: AdhkarListProps) {
+  const { bottom } = useSafeAreaInsets();
+
   return (
-    <View style={emptyScreenStyle.container}>
-      <Text>Adhkar List Screen: {adhkar_type}</Text>
+    <View
+      style={{
+        ...screenStyle.container,
+        backgroundColor: "white",
+        paddingBottom: bottom,
+      }}
+    >
+      <TitleBar adhkar_type={adhkar_type} />
+      <List type={adhkar_type} />
     </View>
   );
 }
