@@ -10,14 +10,14 @@ on:
       - package.json
       - assets/**
 
-# jobs:
+jobs:
 
-#   update:
-#     name: Publish preview update (if build exists)
-#     type: update
-#     environment: development
-#     params:
-#       platform: android
-#       channel: development
-#       message: "PR #${{ github.event.pull_request.number }}"
+  update:
+    name: Publish preview update (if build exists)
+    type: update
+    environment: development
+    params:
+      platform: android
+      channel: development
+      message: "PR #${{ github.event.pull_request.number }}"
       
