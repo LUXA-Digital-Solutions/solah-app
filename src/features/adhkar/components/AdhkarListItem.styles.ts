@@ -1,8 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { colors } from "../../../shared/styles/colors";
-import { font } from "../../../shared/styles/font";
-import { spacing, borderRadius, borderWidth } from "../../../shared/styles/layout";
+import { colors, font, spacing, borderRadius, borderWidth } from "@/shared/styles";
 
 const BORDER_COLOR = colors.border.brand.primary;
 const TEXT_COLOR = colors.context.brand.primary;

@@ -1,24 +1,21 @@
+import { useRouter } from "expo-router";
 import React, { memo } from "react";
 import { TouchableOpacity, View, Text } from "react-native";
+
+import { AdhkarItem } from "@/features-adhkar/data";
 
 import { adhkarListItemStyles as styles } from "./AdhkarListItem.styles";
 
 export type AdhkarListItemProps = {
-  id: string;
-  title: string;
-  count: number;
-  onPress?: (id: string) => void;
+  item: AdhkarItem;
 };
 
-export const AdhkarListItem = memo(function AdhkarListItem({
-  id,
-  title,
-  count,
-  onPress,
-}: AdhkarListItemProps) {
-  const handlePress = () => {
-    if (onPress) onPress(id);
-  };
+export const AdhkarListItem = memo(function AdhkarListItem({ item }: AdhkarListItemProps) {
+  const { id, title, entries } = item;
+  const count = entries.length;
+
+  const router = useRouter();
+  const handlePress = () => router.push(`/adhkar/details?id=${id}`);
 
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.75} onPress={handlePress}>
