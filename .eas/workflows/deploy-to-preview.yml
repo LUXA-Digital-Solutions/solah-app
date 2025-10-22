@@ -2,7 +2,7 @@ name: Preview a pull request
 
 on:
   push:
-    branches: ['main']
+    branches: ['internal']
     paths:
       - src/**
       - index.js
