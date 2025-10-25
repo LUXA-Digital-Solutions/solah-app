@@ -1,11 +1,20 @@
-import { View, Text } from "react-native";
+import { ScrollView } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { emptyScreenStyle } from "@/shared/styles";
+import { TitleBar } from "@/shared/components";
+import { screenStyle } from "@/shared/styles";
 
 export function SettingsHome() {
+  const { bottom } = useSafeAreaInsets();
   return (
-    <View style={emptyScreenStyle.container}>
-      <Text>Settings Screen</Text>
-    </View>
+    <ScrollView
+      style={{
+        ...screenStyle.container,
+        paddingBottom: bottom,
+      }}
+      showsVerticalScrollIndicator={false}
+    >
+      <TitleBar title="Settings" showBack={false} />
+    </ScrollView>
   );
 }

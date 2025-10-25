@@ -27,9 +27,8 @@ export function HomeScreen() {
     <ScrollView
       style={{
         ...screenStyle.container,
-        backgroundColor: "white",
         paddingTop: top,
-        paddingBottom: bottom, // TODO: Need to be adjusted for tab height
+        paddingBottom: bottom,
       }}
       showsVerticalScrollIndicator={false}
     >
