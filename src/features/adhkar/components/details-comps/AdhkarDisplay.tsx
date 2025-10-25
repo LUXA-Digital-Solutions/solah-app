@@ -23,7 +23,7 @@ export const AdhkarDisplay: React.FC<AdhkarDisplayProps> = ({ item }) => {
       <DetailsNavigator item={item} />
 
       {entries.map(({ arabicText, translation, transliteration }, idx) => (
-        <React.Fragment key={item.id}>
+        <React.Fragment key={idx}>
           <View style={styles.section}>
             <View style={styles.arabicTextWrap}>
               <Text style={styles.arabicText}>{arabicText}</Text>

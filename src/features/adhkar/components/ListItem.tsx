@@ -2,21 +2,20 @@ import { useRouter } from "expo-router";
 import React, { memo } from "react";
 import { View, Text, Pressable } from "react-native";
 
-import { AdhkarItem, AdhkarType } from "@/features-adhkar/data";
+import { AdhkarItem } from "@/features-adhkar/data";
 
 import { listItemStyles as styles } from "./ListItem.styles";
 
 export type AdhkarListItemProps = {
   item: AdhkarItem;
-  adhkar_type: AdhkarType;
 };
 
-export const ListItem = memo(function AdhkarListItem({ item, adhkar_type }: AdhkarListItemProps) {
-  const { id, title, entries } = item;
+export const ListItem = memo(function AdhkarListItem({ item }: AdhkarListItemProps) {
+  const { id, title, type, entries } = item;
   const count = entries.length;
 
   const router = useRouter();
-  const handlePress = () => router.push(`/adhkar/details?adhkar_type=${adhkar_type}&id=${id}`);
+  const handlePress = () => router.push(`/adhkar/details?adhkar_type=${type}&id=${id}`);
 
   return (
     <Pressable
