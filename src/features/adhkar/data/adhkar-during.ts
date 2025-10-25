@@ -4,7 +4,8 @@ export const adhkarDuring: AdhkarGroup = {
   type: "during",
   items: [
     {
-      id: "d1",
+      id: "1",
+      type: "during",
       title: "Opening supplication (Du‘ā’ al-Istiftāḥ)",
       entries: [
         {
@@ -19,7 +20,8 @@ export const adhkarDuring: AdhkarGroup = {
       ],
     },
     {
-      id: "d2",
+      id: "2",
+      type: "during",
       title: "While bowing (Rukū‘)",
       entries: [
         {
@@ -30,7 +32,8 @@ export const adhkarDuring: AdhkarGroup = {
       ],
     },
     {
-      id: "d3",
+      id: "3",
+      type: "during",
       title: "When rising from Rukū‘",
       entries: [
         {
@@ -46,7 +49,8 @@ export const adhkarDuring: AdhkarGroup = {
       ],
     },
     {
-      id: "d4",
+      id: "4",
+      type: "during",
       title: "While prostrating (Sujūd)",
       entries: [
         {
@@ -57,7 +61,8 @@ export const adhkarDuring: AdhkarGroup = {
       ],
     },
     {
-      id: "d5",
+      id: "5",
+      type: "during",
       title: "Between the two prostrations",
       entries: [
         {
@@ -72,7 +77,8 @@ export const adhkarDuring: AdhkarGroup = {
       ],
     },
     {
-      id: "d6",
+      id: "6",
+      type: "during",
       title: "After Tashahhud (before Taslīm)",
       entries: [
         {
@@ -88,3 +94,5 @@ export const adhkarDuring: AdhkarGroup = {
     },
   ],
 };
+
+export const totalAdhkarDuring = adhkarDuring.items.length;

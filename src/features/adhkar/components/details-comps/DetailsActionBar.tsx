@@ -1,5 +1,6 @@
-import React from "react";
-import { View, Pressable, Image } from "react-native";
+import { View, Pressable, Image, Alert } from "react-native";
+
+import { AdhkarItem } from "@/features-adhkar/data";
 
 import { detailsActionBarStyles as styles } from "./DetailsActionBar.styles";
 
@@ -8,16 +9,15 @@ const iconShare = require("@/assets/adhkar-icons/share.png");
 const iconStar = require("@/assets/adhkar-icons/Star.png");
 
 export type DetailsActionBarProps = {
-  onShare?: () => void;
-  onFavorite?: () => void;
-  onPlay?: () => void;
+  item: AdhkarItem;
 };
 
-export const DetailsActionBar: React.FC<DetailsActionBarProps> = ({
-  onShare,
-  onFavorite,
-  onPlay,
-}) => {
+export const DetailsActionBar = ({ item }: DetailsActionBarProps) => {
+  const onShare = () => Alert.alert("Share", `Share adhkar ${item.id} (to be implemented)`);
+  const onFavorite = () =>
+    Alert.alert("Favorite", `Favorite adhkar ${item.id} (to be implemented)`);
+  const onPlay = () => Alert.alert("Play", `Play adhkar ${item.id} (to be implemented)`);
+
   return (
     <View style={styles.container}>
       <Pressable onPress={onShare} style={styles.iconButton} accessibilityLabel="share">

@@ -6,9 +6,6 @@ import { spacing, borderRadius } from "@/shared/styles/layout";
 
 export const detailsNavigatorStyles = StyleSheet.create({
   container: {
-    marginHorizontal: spacing.md,
-    marginTop: spacing.lg,
-    marginBottom: spacing.md,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: colors.context.brand.primary,
@@ -28,8 +25,7 @@ export const detailsNavigatorStyles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontSize: font.heading.xsmall.fontSize,
-    fontFamily: font.heading.xsmall.fontFamily,
+    ...font.heading.xsmall,
     color: colors.background.default.primary,
     fontWeight: "700",
   },
