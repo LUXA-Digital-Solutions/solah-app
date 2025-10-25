@@ -23,7 +23,7 @@ export const AdhkarDisplay: React.FC<AdhkarDisplayProps> = ({ item }) => {
       <DetailsNavigator item={item} />
 
       {entries.map(({ arabicText, translation, transliteration }, idx) => (
-        <>
+        <React.Fragment key={item.id}>
           <View style={styles.section}>
             <View style={styles.arabicTextWrap}>
               <Text style={styles.arabicText}>{arabicText}</Text>
@@ -37,7 +37,7 @@ export const AdhkarDisplay: React.FC<AdhkarDisplayProps> = ({ item }) => {
           </View>
 
           {idx < entries.length - 1 ? <View style={styles.divider} /> : null}
-        </>
+        </React.Fragment>
       ))}
     </ScrollView>
   );
