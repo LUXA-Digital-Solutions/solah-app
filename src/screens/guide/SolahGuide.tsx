@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
 
+import { SolahName } from "@/features-solah/types";
 import { emptyScreenStyle } from "@/shared/styles";
 
 interface SolahGuideProps {
-  solahName: string;
+  solahName: SolahName;
 }
 
 export function SolahGuide({ solahName }: SolahGuideProps) {
