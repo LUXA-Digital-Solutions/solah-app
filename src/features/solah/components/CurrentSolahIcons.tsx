@@ -1,48 +1,18 @@
-import { CloudMoon, CloudSun, MoonStar, Sun, Sunset } from "lucide-react-native";
 import { View, Text } from "react-native";
 
 import { useCurrentSolah } from "@/features-solah/hooks";
+import { SolahName } from "@/features-solah/types";
+import { SolahIcons } from "@/features-solah/utils";
 import { context, fontsize, fontweight } from "@/shared/styles";
 
 const currentIconColor = context.default.inverted;
 const defaultIconColor = context.brand.inverted;
-const iconSize = 18;
-
-const TIMESOFSALAH = [
-  {
-    title: "Subhi",
-    icon: (isCurrent: boolean) => (
-      <CloudMoon color={isCurrent ? currentIconColor : defaultIconColor} size={iconSize} />
-    ),
-  },
-  {
-    title: "Zuhr",
-    icon: (isCurrent: boolean) => (
-      <Sun color={isCurrent ? currentIconColor : defaultIconColor} size={iconSize} />
-    ),
-  },
-  {
-    title: "Asr",
-    icon: (isCurrent: boolean) => (
-      <CloudSun color={isCurrent ? currentIconColor : defaultIconColor} size={iconSize} />
-    ),
-  },
-  {
-    title: "Maghrib",
-    icon: (isCurrent: boolean) => (
-      <Sunset color={isCurrent ? currentIconColor : defaultIconColor} size={iconSize} />
-    ),
-  },
-  {
-    title: "Isha'",
-    icon: (isCurrent: boolean) => (
-      <MoonStar color={isCurrent ? currentIconColor : defaultIconColor} size={iconSize} />
-    ),
-  },
-];
+const iconSize = 16;
 
 export function CurrentSolahIcons() {
   const { currentSolah } = useCurrentSolah();
+  const solahOrder: SolahName[] = ["Subhi", "Dhuhr", "Asr", "Maghrib", "Isha"];
+
   return (
     <View
       style={{
@@ -52,29 +22,35 @@ export function CurrentSolahIcons() {
         gap: 14,
       }}
     >
-      {TIMESOFSALAH.map((time) => (
-        <View
-          key={time.title}
-          style={{
-            flexDirection: "column",
-            alignItems: "center",
-            alignSelf: "flex-start",
-            gap: 2,
-          }}
-        >
-          {time.icon(currentSolah === time.title)}
-          <Text
+      {solahOrder.map((title) => {
+        const Icon = SolahIcons[title];
+        const isCurrent = currentSolah === title;
+        const color = isCurrent ? currentIconColor : defaultIconColor;
+
+        return (
+          <View
+            key={title}
             style={{
-              textAlign: "left",
-              color: currentSolah === time.title ? currentIconColor : defaultIconColor,
-              fontWeight: currentSolah === time.title ? fontweight.extrabold : fontweight.normal,
-              fontSize: fontsize.xs,
+              flexDirection: "column",
+              alignItems: "center",
+              alignSelf: "flex-start",
+              gap: 2,
             }}
           >
-            {time.title}
-          </Text>
-        </View>
-      ))}
+            <Icon color={color} size={iconSize} />
+            <Text
+              style={{
+                textAlign: "left",
+                color,
+                fontWeight: isCurrent ? fontweight.extrabold : fontweight.normal,
+                fontSize: fontsize.xs,
+              }}
+            >
+              {title}
+            </Text>
+          </View>
+        );
+      })}
     </View>
   );
 }

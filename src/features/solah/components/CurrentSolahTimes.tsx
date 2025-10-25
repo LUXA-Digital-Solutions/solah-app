@@ -1,80 +1,51 @@
-import { CloudMoon, CloudSun, MoonStar, Sun, Sunset } from "lucide-react-native";
-import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-import { colors, spacing, borderRadius } from "@/shared/styles";
+import { useCurrentLocation, useCurrentSolah, useSolahTimes } from "@/features-solah/hooks";
+import { CalendarFormat } from "@/features-solah/types";
+import { formatDate, SolahIcons } from "@/features-solah/utils";
+import { colors, spacing, borderRadius, font, fontweight } from "@/shared/styles";
 
 interface CurrentSolahTimesProps {
   selectedDate: Date;
 }
 
 export function CurrentSolahTimes({ selectedDate }: CurrentSolahTimesProps) {
-  const solahTimes = [
-    { name: "Subhi", time: "05:45", icon: CloudMoon },
-    { name: "Dhuhr", time: "12:55", icon: Sun },
-    { name: "Asr", time: "17:05", icon: CloudSun },
-    { name: "Maghrib", time: "19:00", icon: Sunset },
-    { name: "Isha'", time: "20:05", icon: MoonStar },
-  ];
+  const { times } = useSolahTimes();
+  const { location } = useCurrentLocation();
+  const { currentSolah } = useCurrentSolah();
 
-  const currentPrayer = "Maghrib";
-
+  const calendarFormat: CalendarFormat = "hijri";
   const dayName = selectedDate.toLocaleDateString("en-US", {
     weekday: "long",
   });
-  const dayNumber = selectedDate.getDate();
-  const year = selectedDate.getFullYear().toString().slice(-2);
+  const locale = "en-US";
 
   return (
     <View style={styles.container}>
       {/* Header section */}
-      <Text style={styles.dateText}>
-        {dayName} • {dayNumber}/{year}
-      </Text>
-      <Text style={styles.locationText}>Ilorin, Kwara State</Text>
+      <View style={styles.dateLocContainer}>
+        <Text style={styles.dateText}>
+          {dayName} • {formatDate(selectedDate, calendarFormat, locale, "collapse")}
+        </Text>
+        <Text style={styles.locationText}>{location}</Text>
+      </View>
 
       {/* Solah Times List */}
-      {solahTimes.map(({ name, time, icon: Icon }) => {
-        const isActive = name === currentPrayer;
+      {times.map(({ title, time }) => {
+        const isActive = title === currentSolah;
+        const Icon = SolahIcons[title];
 
         return (
           <View
-            key={name}
+            key={title}
             style={[styles.row, isActive && { backgroundColor: colors.background.brand.primary }]}
           >
             <View style={styles.left}>
-              <Icon size={20} color="#FDFDFD" style={{ marginRight: 8 }} />
-              <Text
-                style={[
-                  {
-                    color: "#FDFDFD",
-                    marginLeft: spacing.sm,
-                    fontFamily: "Figtree",
-                    fontSize: 14,
-                    fontWeight: "600",
-                    lineHeight: 20,
-                    letterSpacing: 0,
-                  },
-                ]}
-              >
-                {name}
-              </Text>
+              <Icon size={20} color={colors.context.default.inverted} style={{ marginRight: 8 }} />
+              <Text style={styles.rowText}>{title}</Text>
             </View>
 
-            <Text
-              style={[
-                {
-                  color: "#FDFDFD",
-                  fontFamily: "Figtree",
-                  fontSize: 14,
-                  fontWeight: "600",
-                  lineHeight: 20,
-                  letterSpacing: 0,
-                },
-              ]}
-            >
-              {time}
-            </Text>
+            <Text style={styles.rowText}>{time}</Text>
           </View>
         );
       })}
@@ -84,32 +55,25 @@ export function CurrentSolahTimes({ selectedDate }: CurrentSolahTimesProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    marginTop: 150, // Added space for SolahCalendar above
     position: "relative",
-    padding: 12,
-    borderRadius: 8,
-    backgroundColor: "#333333",
-    opacity: 1,
-    gap: 16,
-    zIndex: 1, // Ensure proper layering
+    paddingVertical: spacing.s,
+    paddingHorizontal: spacing.xs,
+    borderRadius: borderRadius[4],
+    backgroundColor: colors.background.default.inverted,
+    gap: spacing.m,
+  },
+  dateLocContainer: {
+    gap: spacing["3xs"],
   },
   dateText: {
-    fontFamily: "Figtree",
-    fontSize: 14,
-    fontWeight: "600",
-    lineHeight: 20,
-    letterSpacing: 0,
-    color: "#FDFDFD",
-    opacity: 0.9,
+    ...font.label.small,
+    fontWeight: fontweight.bold,
+    color: colors.context.default.inverted,
   },
   locationText: {
-    fontFamily: "Figtree",
-    fontSize: 14,
+    ...font.body.small,
     fontWeight: "600",
-    lineHeight: 20,
-    letterSpacing: 0,
-    color: "#FDFDFD",
+    color: colors.context.default.tertiary,
     marginBottom: spacing.sm,
   },
   row: {
@@ -124,5 +88,14 @@ const styles = StyleSheet.create({
   left: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  rowText: {
+    color: colors.context.default.inverted,
+    marginLeft: spacing.sm,
+    fontFamily: "Figtree",
+    fontSize: 14,
+    fontWeight: "600",
+    lineHeight: 20,
+    letterSpacing: 0,
   },
 });
