@@ -4,7 +4,8 @@ export const adhkarBefore: AdhkarGroup = {
   type: "before",
   items: [
     {
-      id: "b1",
+      id: "1",
+      type: "before",
       title: "When performing ablution (Wudu)",
       entries: [
         {
@@ -15,7 +16,8 @@ export const adhkarBefore: AdhkarGroup = {
       ],
     },
     {
-      id: "b2",
+      id: "2",
+      type: "before",
       title: "After completing ablution",
       entries: [
         {
@@ -38,7 +40,8 @@ export const adhkarBefore: AdhkarGroup = {
       ],
     },
     {
-      id: "b3",
+      id: "3",
+      type: "before",
       title: "When leaving for the mosque",
       entries: [
         {
@@ -53,7 +56,8 @@ export const adhkarBefore: AdhkarGroup = {
       ],
     },
     {
-      id: "b4",
+      id: "4",
+      type: "before",
       title: "Upon entering the mosque",
       entries: [
         {
@@ -64,7 +68,8 @@ export const adhkarBefore: AdhkarGroup = {
       ],
     },
     {
-      id: "b5",
+      id: "5",
+      type: "before",
       title: "Upon leaving the mosque",
       entries: [
         {
@@ -75,7 +80,8 @@ export const adhkarBefore: AdhkarGroup = {
       ],
     },
     {
-      id: "b6",
+      id: "6",
+      type: "before",
       title: "After the Adhaan (Call to Prayer)",
       entries: [
         {
@@ -91,3 +97,5 @@ export const adhkarBefore: AdhkarGroup = {
     },
   ],
 };
+
+export const totalAdhkarBefore = adhkarBefore.items.length;

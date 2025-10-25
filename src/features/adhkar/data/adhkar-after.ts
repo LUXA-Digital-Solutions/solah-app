@@ -4,7 +4,8 @@ export const adhkarAfter: AdhkarGroup = {
   type: "after",
   items: [
     {
-      id: "a1",
+      id: "1",
+      type: "after",
       title: "After finishing the prayer (Tasleem)",
       entries: [
         {
@@ -24,7 +25,8 @@ export const adhkarAfter: AdhkarGroup = {
       ],
     },
     {
-      id: "a2",
+      id: "2",
+      type: "after",
       title: "After every obligatory prayer",
       entries: [
         {
@@ -47,7 +49,8 @@ export const adhkarAfter: AdhkarGroup = {
       ],
     },
     {
-      id: "a3",
+      id: "3",
+      type: "after",
       title: "Ayatul Kursi (after each prayer)",
       entries: [
         {
@@ -63,3 +66,5 @@ export const adhkarAfter: AdhkarGroup = {
     },
   ],
 };
+
+export const totalAdhkarAfter = adhkarAfter.items.length;

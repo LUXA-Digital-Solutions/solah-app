@@ -10,6 +10,7 @@ export type AdhkarType = "before" | "during" | "after";
 
 export type AdhkarItem = {
   id: string;
+  type: AdhkarType;
   title: string;
   entries: AdhkarEntry[];
 };

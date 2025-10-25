@@ -1,37 +1,28 @@
+import React from "react";
 import { View, Text } from "react-native";
 
-import { adhkarData, AdhkarItem } from "@/features-adhkar/data";
+import { adhkarData, AdhkarItem } from "@/features/adhkar/data";
+
+import { AdhkarDisplay } from "./details-comps";
 
 interface DetailsProps {
   id: string;
 }
 
 export function Details({ id }: DetailsProps) {
-  const items = adhkarData.flatMap((group) => group.items).find((item) => item.id === id);
+  // find adhkar item by id
+  const item = adhkarData.flatMap((group) => group.items).find((i) => i.id === id);
 
-  return <>{items ? <WithData items={items} /> : <NoData />}</>;
+  return <>{item ? <WithData item={item} /> : <NoData />}</>;
 }
 
-const WithData = ({ items }: { items: AdhkarItem }) => {
-  const { title, entries } = items;
-  return (
-    <>
-      <Text>Details for {title}</Text>
-      {entries.map((entry, index) => (
-        <View key={index}>
-          <Text>{entry.arabicText}</Text>
-          <Text>{entry.transliteration}</Text>
-          <Text>{entry.translation.en}</Text>
-        </View>
-      ))}
-    </>
-  );
+const WithData = ({ item }: { item: AdhkarItem }) => {
+  // Callbacks (stubbed)
+  return <AdhkarDisplay item={item} />;
 };
 
-const NoData = () => {
-  return (
-    <View>
-      <Text>No data</Text>
-    </View>
-  );
-};
+const NoData = () => (
+  <View className="flex-1 justify-center items-center p-4">
+    <Text>No data available</Text>
+  </View>
+);
