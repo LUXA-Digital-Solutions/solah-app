@@ -4,6 +4,10 @@ const solahName = "Isha";
 
 export const ishaGuide: SolahGroup = {
   solah: solahName,
+  description: {
+    en: "Night solah",
+  },
+  illustration: require("@/assets/guide-illustrations/Asr.png"),
   rakaat: 4,
   items: [
     {

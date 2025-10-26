@@ -4,6 +4,10 @@ const solahName = "Asr";
 
 export const asrGuide: SolahGroup = {
   solah: solahName,
+  description: {
+    en: "Afternoon solah",
+  },
+  illustration: require("@/assets/guide-illustrations/Asr.png"),
   rakaat: 4,
   items: [
     {

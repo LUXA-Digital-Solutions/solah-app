@@ -13,3 +13,5 @@ export const solahGuides: Record<SolahName, SolahGroup> = {
   Maghrib: maghribGuide,
   Isha: ishaGuide,
 };
+
+export const solahNames: SolahName[] = ["Subhi", "Dhuhr", "Asr", "Maghrib", "Isha"];

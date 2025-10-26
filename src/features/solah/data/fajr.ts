@@ -4,6 +4,10 @@ const solahName = "Subhi";
 
 export const fajrGuide: SolahGroup = {
   solah: solahName,
+  description: {
+    en: "Dawn solah",
+  },
+  illustration: require("@/assets/guide-illustrations/Fajr.png"),
   rakaat: 2,
   items: [
     {

@@ -1,30 +1,26 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
-import { colors, spacing, borderRadius } from "@/shared/styles";
+import { SolahGroup } from "@/features-solah/types";
+import { colors, spacing, borderRadius, effect, borderWidth, font } from "@/shared/styles";
 
 interface SolahButtonProps {
-  name: string;
-  description: string;
-  rakaat: string;
-  illustration: any;
-  onPress?: () => void;
+  data: SolahGroup;
 }
 
-export const SolahButton = ({
-  name,
-  description,
-  rakaat,
-  illustration,
-  onPress,
-}: SolahButtonProps) => {
+export const SolahButton = ({ data }: SolahButtonProps) => {
+  const router = useRouter();
+
+  const { solah, description, illustration, rakaat } = data;
+  const handlePress = () => router.push(`/guide/${solah}`);
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.85} style={styles.container}>
+    <TouchableOpacity onPress={handlePress} activeOpacity={0.85} style={styles.container}>
       <View style={styles.textContainer}>
         <Text style={styles.descriptionText}>
-          {name} • {description}
+          {solah} • {description.en}
         </Text>
-        <Text style={styles.rakaatText}>{rakaat}</Text>
+        <Text style={styles.rakaatText}>{rakaat} Raka&rsquo;at</Text>
       </View>
       <Image source={illustration} style={styles.image} resizeMode="contain" />
     </TouchableOpacity>
@@ -33,34 +29,27 @@ export const SolahButton = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: 380,
-    height: 89,
+    width: "100%",
     backgroundColor: colors.background.default.primary, // #FDFDFD
-    borderWidth: 1,
+    borderWidth: borderWidth.sm,
     borderColor: colors.border.default.tertiary, // #E8E8E8
-    borderRadius: borderRadius.lg,
+    borderRadius: borderRadius[4],
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
     padding: spacing.m,
-    marginBottom: spacing.md,
-    alignSelf: "center", // centers in ScrollView
+    ...effect.E2,
   },
   textContainer: {
     flexDirection: "column",
     justifyContent: "center",
   },
   rakaatText: {
-    fontFamily: "Figtree_700Bold",
-    fontSize: 32,
-    color: colors.context.default.primary, // #333333
-    lineHeight: 38,
+    ...font.display.small,
+    color: colors.context.default.primary,
   },
   descriptionText: {
-    fontFamily: "Figtree_600SemiBold",
-    fontSize: 12,
-    lineHeight: 16,
-    color: colors.context.brand.secondary, // #B37B56
+    ...font.label.small,
+    color: colors.context.brand.secondary,
   },
   image: {
     width: 55,
