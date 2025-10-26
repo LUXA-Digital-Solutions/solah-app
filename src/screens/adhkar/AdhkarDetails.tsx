@@ -22,7 +22,7 @@ export function AdhkarDetails({ adhkar_type, id }: AdhkarDetailsProps) {
       }}
     >
       <TitleBar adhkar_type={adhkar_type} />
-      <Details id={id} />
+      <Details id={id} adhkar_type={adhkar_type} />
     </View>
   );
 }

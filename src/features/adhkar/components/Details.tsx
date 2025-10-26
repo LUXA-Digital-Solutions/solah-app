@@ -1,17 +1,20 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-import { adhkarData, AdhkarItem } from "@/features/adhkar/data";
+import { adhkarData, AdhkarItem, AdhkarType } from "@/features/adhkar/data";
 
 import { AdhkarDisplay } from "./details-comps";
 
 interface DetailsProps {
   id: string;
+  adhkar_type: AdhkarType;
 }
 
-export function Details({ id }: DetailsProps) {
+export function Details({ id, adhkar_type }: DetailsProps) {
   // find adhkar item by id
-  const item = adhkarData.flatMap((group) => group.items).find((i) => i.id === id);
+  const item = adhkarData
+    .flatMap((group) => group.items)
+    .find((i) => i.id === id && i.type === adhkar_type);
 
   return <>{item ? <WithData item={item} /> : <NoData />}</>;
 }
