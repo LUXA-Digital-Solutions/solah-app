@@ -30,6 +30,10 @@ export type SolahItem = {
 
 export type SolahGroup = {
   solah: SolahName;
+  description: {
+    en: string;
+  };
+  illustration: any;
   rakaat: number;
   items: SolahItem[]; // ordered steps; order is by appearance in the array
 };
