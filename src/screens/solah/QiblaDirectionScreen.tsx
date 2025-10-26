@@ -1,6 +1,7 @@
 import { ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import LocationCard from "@/features/solah/components/LocationComponent";
 import { TitleBar } from "@/shared/components";
 import { colors, screenStyle } from "@/shared/styles";
 
@@ -33,6 +34,8 @@ export function QiblaDirectionScreen() {
       showsVerticalScrollIndicator={false}
     >
       <TitleBar title="Qibla direction" />
+
+      <LocationCard />
     </ScrollView>
   );
 }
