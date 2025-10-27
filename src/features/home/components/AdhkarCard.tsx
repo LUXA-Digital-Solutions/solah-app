@@ -9,7 +9,7 @@ export function AdhkarCard() {
 
   return (
     <>
-      <Text style={styles.title}>Adhkar</Text>
+      <Text style={styles.title}>Adhkār</Text>
 
       <View style={styles.mainCardWrapper}>
         {/* Left - Large Card */}
@@ -21,10 +21,9 @@ export function AdhkarCard() {
               router.push("/adhkar/before");
             }}
             variant="large"
-            // width="100%"
             height={268}
             bgStyle="dark"
-            illustration={require("@/assets/images/solah_illustrations/Group.png")}
+            illustration={require("@/assets/images/solah_illustrations/man-ablution.png")}
           />
         </View>
 
@@ -41,9 +40,10 @@ export function AdhkarCard() {
             bgStyle="light"
             illustration={require("@/assets/images/solah_illustrations/Prostration.png")}
           />
+
           <Card
             title="After Prayer"
-            subtitle="Remembrance after saläm"
+            subtitle="Remembrance after salām"
             onPress={() => {
               router.push("/adhkar/after");
             }}
@@ -66,20 +66,21 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: context.brand.primary,
   },
+
   mainCardWrapper: {
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
     alignSelf: "center",
     gap: 8,
-    paddingHorizontal: 0,
-    boxSizing: "border-box",
   },
-  largeCardWrapper: { width: "50%", justifyContent: "flex-start" },
+  largeCardWrapper: {
+    width: "50%",
+    justifyContent: "flex-start",
+  },
   smallCardWrapper: {
     width: "48%",
     flexDirection: "column",
     justifyContent: "space-between",
-    boxSizing: "border-box",
   },
 });
