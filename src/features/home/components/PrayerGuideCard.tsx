@@ -2,7 +2,9 @@ import { useRouter } from "expo-router";
 import { StyleSheet, Text, View, Image } from "react-native";
 
 import { AppButton } from "@/shared/components";
-import { fontsize } from "@/shared/styles";
+import { colors } from "@/shared/styles/colors";
+import { fontsize, fontweight } from "@/shared/styles/font";
+import { spacing, borderRadius } from "@/shared/styles/layout";
 
 export const PrayerGuideCard = () => {
   const router = useRouter();
@@ -34,11 +36,11 @@ export const PrayerGuideCard = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginTop: 24,
+    marginTop: spacing.xl,
     position: "relative",
-    padding: 16,
-    borderRadius: 12,
-    backgroundColor: "var(--Background-Brand-Inverted, #E6D3C7)",
+    padding: spacing.md,
+    borderRadius: borderRadius.lg,
+    backgroundColor: colors.background.brand.inverted, // ✅ using palette
     overflow: "hidden",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -47,35 +49,35 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     zIndex: 2,
-    paddingRight: 8,
+    paddingRight: spacing.sm,
   },
   textContainer: {
-    gap: 4,
-    marginBottom: 12,
+    gap: spacing.xs,
+    marginBottom: spacing.sm,
   },
   title: {
-    fontFamily: "Figtree",
-    fontSize: 24,
-    fontWeight: "600",
+    fontFamily: "Figtree_600SemiBold",
+    fontSize: fontsize.xxl,
+    fontWeight: fontweight.semibold,
     textAlign: "left",
-    color: "#483020",
+    color: colors.context.brand.primary, // ✅ palette.primary[900]
   },
   subtitle: {
-    fontFamily: "Figtree",
-    fontSize: 13,
+    fontFamily: "Figtree_400Regular",
+    fontSize: fontsize.sm,
     textAlign: "left",
-    color: "#B37B56",
+    color: colors.context.brand.secondary, // ✅ palette.primary[500]
   },
   button: {
-    backgroundColor: "#B37B56",
-    paddingVertical: 12,
-    borderRadius: 8,
+    backgroundColor: colors.background.brand.primary, // ✅ palette.primary[500]
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.md,
   },
   buttonText: {
-    fontFamily: "Figtree",
+    fontFamily: "Figtree_600SemiBold",
     fontSize: fontsize.md,
-    fontWeight: "600",
-    color: "#FDFDFD",
+    fontWeight: fontweight.semibold,
+    color: colors.context.brand.inverted, // ✅ palette.primary[100]
   },
   illustration: {
     position: "absolute",
