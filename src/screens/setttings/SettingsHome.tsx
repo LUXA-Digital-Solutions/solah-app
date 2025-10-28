@@ -3,8 +3,8 @@ import { ScrollView, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Card } from "@/features/settings/components/Card";
+import { Header } from "@/features/settings/components/Header";
 import { Item } from "@/features/settings/components/Item";
-import { TitleBar } from "@/shared/components";
 import { screenStyle } from "@/shared/styles";
 
 export function SettingsHome() {
@@ -18,7 +18,7 @@ export function SettingsHome() {
       }}
       showsVerticalScrollIndicator={false}
     >
-      <TitleBar title="Settings" showBack={false} />
+      <Header title="Settings" showBack={false} />
 
       {/* Prayer times group */}
       <Text
