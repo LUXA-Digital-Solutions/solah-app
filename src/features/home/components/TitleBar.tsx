@@ -1,7 +1,8 @@
 import { Bell, Search } from "lucide-react-native";
-import { View, Pressable, Text, StyleSheet } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { fontsize } from "@/shared/styles";
+import { ds } from "@/shared/utils/responsive-dimensions";
 
 export const TitleBar = () => {
   return (
@@ -24,10 +25,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     width: "100%",
-    height: 38,
+    height: ds(38),
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 10,
+    marginTop: ds(10),
   },
   title: {
     fontSize: fontsize.xxl,
@@ -39,6 +40,6 @@ const styles = StyleSheet.create({
     width: "auto",
     alignItems: "center",
     justifyContent: "space-between",
-    gap: 12,
+    gap: ds(12),
   },
 });
