@@ -10,12 +10,13 @@ export type CardProps = {
   style?: ViewStyle;
 };
 
-export const Card: React.FC<CardProps> = ({ title, description, children, style }) => {
+export const Card: React.FC<CardProps> = ({ title, children, style }) => {
   return (
-    <View style={[cardStyles.container, style]}>
-      {title ? <Text style={cardStyles.title}>{title}</Text> : null}
-      {description ? <Text style={cardStyles.description}>{description}</Text> : null}
-      <View style={cardStyles.content}>{children}</View>
-    </View>
+    <>
+      <Text style={cardStyles.title}>{title}</Text>
+      <View style={[cardStyles.container, style]}>
+        <View style={cardStyles.content}>{children}</View>
+      </View>
+    </>
   );
 };

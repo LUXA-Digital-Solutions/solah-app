@@ -6,10 +6,9 @@ import { spacing } from "@/shared/styles/layout";
 
 export const itemStyles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: spacing.sm,
-    paddingHorizontal: 0,
+    alignItems: "baseline",
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.xs,
     justifyContent: "space-between",
   },
   pressed: {
@@ -20,18 +19,12 @@ export const itemStyles = StyleSheet.create({
     flex: 1,
     paddingRight: spacing.sm,
   },
-  right: {
-    alignItems: "flex-end",
-    minWidth: 80,
-  },
   label: {
-    fontSize: font.body.medium.fontSize,
-    fontFamily: font.body.medium.fontFamily,
-    color: colors.context.brand.primary,
+    ...font.label.large,
+    color: colors.context.default.primary,
   },
   value: {
-    fontSize: font.body.small.fontSize,
-    fontFamily: font.body.small.fontFamily,
+    ...font.body.xsmall,
     color: colors.context.default.secondary,
     marginTop: 6,
   },
