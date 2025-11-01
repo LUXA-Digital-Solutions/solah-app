@@ -1,7 +1,8 @@
 import { useRouter } from "expo-router";
-import { Image, Pressable, View, StyleSheet, StyleProp, ViewStyle } from "react-native";
+import { Image, Pressable, StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 
 import { colors } from "@/shared/styles";
+import { ds } from "@/shared/utils/responsive-dimensions";
 
 import { CurrentDateAndTime } from "./CurrentDateAndTime";
 import { CurrentLocation } from "./CurrentLocation";
@@ -43,13 +44,13 @@ export const PrayerTimesCard = ({ homePage = false, style }: PrayerTimeCardProps
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    marginTop: 24,
-    rowGap: 24,
+    marginTop: ds(24),
+    rowGap: ds(24),
     position: "relative",
-    padding: 12,
-    borderRadius: 8,
+    padding: ds(12),
+    borderRadius: ds(8),
     overflow: "hidden",
-    marginBottom: 24,
+    marginBottom: ds(24),
     backgroundColor: colors.background.brand.primary,
   },
   image: {

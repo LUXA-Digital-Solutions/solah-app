@@ -1,8 +1,9 @@
 import { useRouter } from "expo-router";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { Card } from "@/features-adhkar/components";
 import { context, fontsize } from "@/shared/styles";
+import { ds } from "@/shared/utils/responsive-dimensions";
 
 export function AdhkarCard() {
   const router = useRouter();
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: fontsize.xl,
     textAlign: "left",
-    marginBottom: 20,
+    marginBottom: ds(20),
     fontWeight: "bold",
     color: context.brand.primary,
   },
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
     alignSelf: "center",
-    gap: 8,
+    gap: ds(8),
   },
   largeCardWrapper: {
     width: "50%",

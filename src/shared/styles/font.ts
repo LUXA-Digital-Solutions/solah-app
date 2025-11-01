@@ -1,13 +1,15 @@
 import { StyleSheet } from "react-native";
 
+import { fontSize } from "@/shared/utils/responsive-dimensions";
+
 export const fontsize = {
-  xs: 12,
-  sm: 14,
-  md: 16,
-  lg: 18,
-  xl: 20,
-  xxl: 24,
-  xxxl: 30,
+  xs: fontSize(12),
+  sm: fontSize(14),
+  md: fontSize(16),
+  lg: fontSize(18),
+  xl: fontSize(20),
+  xxl: fontSize(24),
+  xxxl: fontSize(30),
 } as const;
 
 export const fontweight = {
@@ -29,15 +31,15 @@ const display_base = {
 const display = StyleSheet.create({
   large: {
     ...display_base,
-    fontSize: 42,
+    fontSize: fontSize(42),
   },
   medium: {
     ...display_base,
-    fontSize: 36,
+    fontSize: fontSize(36),
   },
   small: {
     ...display_base,
-    fontSize: 32,
+    fontSize: fontSize(32),
   },
 });
 
@@ -50,19 +52,19 @@ const heading_base = {
 const heading = StyleSheet.create({
   large: {
     ...heading_base,
-    fontSize: 28,
+    fontSize: fontSize(28),
   },
   medium: {
     ...heading_base,
-    fontSize: 26,
+    fontSize: fontSize(26),
   },
   small: {
     ...heading_base,
-    fontSize: 24,
+    fontSize: fontSize(24),
   },
   xsmall: {
     fontFamily: "Figtree_500Medium",
-    fontSize: 20,
+    fontSize: fontSize(20),
   },
 });
 
@@ -75,19 +77,19 @@ const body_base = {
 const body = StyleSheet.create({
   large: {
     ...body_base,
-    fontSize: 18,
+    fontSize: fontSize(18),
   },
   medium: {
     ...body_base,
-    fontSize: 16,
+    fontSize: fontSize(16),
   },
   small: {
     ...body_base,
-    fontSize: 14,
+    fontSize: fontSize(14),
   },
   xsmall: {
     ...body_base,
-    fontSize: 12,
+    fontSize: fontSize(12),
   },
 });
 
@@ -100,19 +102,19 @@ const label_base = {
 const label = StyleSheet.create({
   large: {
     ...label_base,
-    fontSize: 16,
+    fontSize: fontSize(16),
   },
   medium: {
     ...label_base,
-    fontSize: 14,
+    fontSize: fontSize(14),
   },
   small: {
     ...label_base,
-    fontSize: 12,
+    fontSize: fontSize(12),
   },
   xsmall: {
     ...label_base,
-    fontSize: 10,
+    fontSize: fontSize(10),
   },
 });
 

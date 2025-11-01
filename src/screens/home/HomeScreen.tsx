@@ -1,18 +1,14 @@
-import { ScrollView } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
-import { TitleBar, PrayerGuideCard, PrayerTimesCard, AdhkarCard } from "@/features-home/components";
-import { screenStyle } from "@/shared/styles";
+import { AdhkarCard, PrayerGuideCard, PrayerTimesCard, TitleBar } from "@/features-home/components";
+import ScreenContainer, { edgesHorizontal } from "@/shared/components/screen-container";
 
 /**
  * HomeScreen component
  *
  * @description
  * Renders the main home screen for the Solah app. The layout is wrapped
- * in a ScrollView and automatically adjusts its top and bottom padding
- * according to the device's safe area insets to ensure proper spacing
- * on devices with notches, status bars, or navigation indicators.
- *
+ * in a ScreenContainer which handles safe area insets, scrolling, and
+ * proper spacing on devices with notches, status bars, or navigation
+ * indicators.
  *
  * @example
  * ```tsx
@@ -21,21 +17,12 @@ import { screenStyle } from "@/shared/styles";
  */
 
 export function HomeScreen() {
-  const { top, bottom } = useSafeAreaInsets();
-
   return (
-    <ScrollView
-      style={{
-        ...screenStyle.container,
-        paddingTop: top,
-        paddingBottom: bottom,
-      }}
-      showsVerticalScrollIndicator={false}
-    >
+    <ScreenContainer scrollable edges={["top", ...edgesHorizontal]} withPadding>
       <TitleBar />
       <PrayerTimesCard />
       <AdhkarCard />
       <PrayerGuideCard />
-    </ScrollView>
+    </ScreenContainer>
   );
 }
